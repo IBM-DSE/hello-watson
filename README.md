@@ -4,12 +4,10 @@
 
 This application uses Watson's intelligence to provide an interactive chatbot with a graphical & vocal interface.
 
-It uses the following Watson Developer Cloud services:
-- [Watson Speech to Text](http://www.ibm.com/watson/developercloud/speech-to-text.html)
-- Watson Conversation
-- Watson Text to Speech
-
-[See the demo](http://conversation-demo.mybluemix.net/).
+It uses the following [Watson Developer Cloud](http://www.ibm.com/watson/developercloud/) services:
+- [Speech to Text](http://www.ibm.com/watson/developercloud/speech-to-text.html)
+- [Conversation](https://www.ibm.com/watson/developercloud/conversation.html)
+- [Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html)
 
 This app is based off of the [Conversation Car Dashboard Demo Application](https://conversation-demo.mybluemix.net/) and the code was forked from [this GitHub Repository](https://github.com/watson-developer-cloud/car-dashboard)
 
