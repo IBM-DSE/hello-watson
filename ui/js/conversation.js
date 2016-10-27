@@ -182,6 +182,8 @@ var Conversation = (function() {
   }
 
   // Display a message, given a message payload and a message type (user or Watson)
+  // TODO: Allow multi-line responses
+  // TODO: Make sure that newline characters at the end don't mess with the question mark detection
   function displayMessage(newPayload, typeValue) {
     var isUser = isUserMessage(typeValue);
     var textExists = (newPayload.input && newPayload.input.text)

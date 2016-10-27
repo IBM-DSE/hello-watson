@@ -21,7 +21,7 @@
 (function () {
     // TooltipDialogs.init();
     Conversation.init();
-    ConversationResponse.init();
+    // ConversationResponse.init();
     Sidebar.init();
     // Animations.init();
     // Used as a cloak to delay displaying the app until it's likely done rendering
