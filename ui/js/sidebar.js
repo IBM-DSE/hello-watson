@@ -27,6 +27,7 @@ var Sidebar = (function() {
     suggestionList: 'suggestion-list'
   };
 
+  // TODO: Make this more accessible
   var suggestions = [
     'Turn on the headlights',
     'Shut off my lights',

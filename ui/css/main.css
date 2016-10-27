@@ -26,6 +26,11 @@ body {
     position: relative;
 }
 
+.centered-content {
+    padding: 40px 15px 15px 15px;
+    text-align: center;
+}
+
 .overlay {
     position: absolute;
     width: 100%;
@@ -105,26 +110,28 @@ body {
     margin-left: -0.625rem;
 }
 
-#svg_wrapper {
+#chat_wrapper {
     margin: auto;
     overflow: hidden;
     position: relative;
+    /*width: 60%;*/
+    /*height: 100%;*/
     min-width: 325px;
     max-width: 1100px;
 }
 
-#svg_size {
+#chat_container {
     font-size: 0;
     position: relative;
-    height: 0;
+    /*height: 100%;*/
+    /*height: calc(100% - 16rem);*/
     width: 100%;
     padding: 0;
-    padding-bottom: calc( 100% * 704 / 1024 );
+    /*padding-bottom: calc( 100% * 704 / 1024 );*/
 }
 
 #svg_canvas{
     position: absolute;
-    height: 100%;
     width: 100%;
     left: 0;
     top: 0;

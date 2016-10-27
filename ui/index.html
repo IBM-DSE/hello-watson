@@ -16,16 +16,21 @@
          WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
          See the License for the specific language governing permissions and
          limitations under the License.">
-    <meta name="description" content="Watson Conversation Service Car Dashboard Sample Application">
-    <title>Watson Conversation Service Car Dashboard Sample Application</title>
+    <meta name="description" content="Watson Conversation Service Sample Application">
+
+    <title>Hello Watson</title>
+
     <!-- build:css css/main.min.css -->
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
     <link rel="stylesheet" type="text/css" href="css/conversation.css">
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
-    <link rel="stylesheet" type="text/css" href="css/weather.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/weather.css">-->
     <link rel="stylesheet" type="text/css" href="css/font.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/responsive.css">-->
     <!-- endbuild -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="ct" content="vPWQz9kc-2sDXDdB6m_K5RLm_mwStA0c3cyo">
@@ -33,59 +38,64 @@
 </head>
 
 <body>
-    <div id="dark-overlay" class="overlay"></div>
-    <div id="clear-overlay" class="overlay"></div>
-    <!--The main car dashboard SVG-->
-    <div id="svg_wrapper">
-        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
-        <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
-        <div id="svg_size">
-            <svg id="svg_canvas" viewBox="0 0 1024 704" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
-        </div>
-        <div class="chatUi">
-            <div id="chat-scroll-wrapper"><div id="chat-flow"></div></div>
-            <div id="input-wrapper" class="responsive-columns-wrapper">
-                <div id="input-mic-holder">
-                    <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div>
-                </div>
 
-                <label for="user-input" class="input-outline responsive-column">
-                  <input id="user-input" type="text" placeholder="Type something, e.g. “Turn the headlights on”">
-                </label>
-            </div>
-        </div>
-        <div id="tooltip-dialog-list"></div>
-        <div id="sidebar">
-            <div class="close-div" onclick="Sidebar.toggle()">
-                <img src="images/close-button.png" class="close" alt="close" />
-            </div>
-            <p class="pre-bar">I’m trained on these topics:</p>
-            <ul id="suggestion-list"></ul>
+<div class="centered-content">
+    <h1>Hello, Watson</h1>
+</div>
+
+<div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
+<button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
+
+<div id="chat_wrapper">
+    <div id="chat_container">
+        <div id="chat-scroll-wrapper">
+            <div id="chat-flow"></div>
         </div>
     </div>
-    <script>
-        // For cloaking. Done in JS for the case of disabled JS (i.e. even though not much will work, something will be displayed.)
-        document.body.style.visibility = 'hidden';
-    </script>
-    <!-- build:js vendor.min.js -->
-    <script src="js/libs/snap.svg.js"></script>
-    <script src="./../node_modules/whatwg-fetch/fetch.js"></script>
-    <!-- endbuild -->
-    <!-- build:js dashboard.min.js -->
-    <script src="js/common.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/sidebar.js"></script>
-    <script src="js/tooltip-dialogs.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/panel.js"></script>
-    <script src="js/conversation.js"></script>
-    <script src="js/conversationResponse.js"></script>
-    <script src="js/global.js"></script>
-    <script src="js/ui_tests/tests.js"></script>
-    <!-- endbuild -->
-    <script src="ibm/watson-speech.min.js"></script>
-    <script src="ibm/speech-to-text.js"></script>
-    <script src="ibm/text-to-speech.js"></script>
+
+    <div id="input-wrapper" class="responsive-columns-wrapper">
+        <div id="input-mic-holder">
+            <div id="input-mic" class="inactive-mic" onclick="STTModule.micON()"></div>
+        </div>
+
+        <label for="user-input" class="input-outline responsive-column">
+            <input id="user-input" type="text" placeholder="<- Click and speak or type something like “Hello, Watson”">
+        </label>
+    </div>
+
+    <div id="tooltip-dialog-list"></div>
+    <div id="sidebar">
+        <div class="close-div" onclick="Sidebar.toggle()">
+            <img src="images/close-button.png" class="close" alt="close"/>
+        </div>
+        <p class="pre-bar">I’m trained on these topics:</p>
+        <ul id="suggestion-list"></ul>
+    </div>
+</div>
+
+<script>
+    // For cloaking. Done in JS for the case of disabled JS (i.e. even though not much will work, something will be displayed.)
+    //        document.body.style.visibility = 'hidden';
+</script>
+<!-- build:js vendor.min.js -->
+<script src="js/libs/snap.svg.js"></script>
+<script src="./../node_modules/whatwg-fetch/fetch.js"></script>
+<!-- endbuild -->
+<!-- build:js dashboard.min.js -->
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/tooltip-dialogs.js"></script>
+<!--<script src="js/animations.js"></script>-->
+<script src="js/panel.js"></script>
+<script src="js/conversation.js"></script>
+<!--<script src="js/conversationResponse.js"></script>-->
+<script src="js/global.js"></script>
+<script src="js/ui_tests/tests.js"></script>
+<!-- endbuild -->
+<script src="ibm/watson-speech.min.js"></script>
+<script src="ibm/speech-to-text.js"></script>
+<script src="ibm/text-to-speech.js"></script>
 </body>
 
 </html>

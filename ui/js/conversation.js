@@ -228,8 +228,8 @@ var Conversation = (function() {
         'tagName': 'p',
         'classNames': (isUser
           ? [authorTypes.user + '-message']
-          : [authorTypes.watson + '-message', classes.preBar]),
-        'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text)
+          : [authorTypes.watson + '-message']),//, classes.preBar
+        'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text + '<img src=\'/images/watson-logo-round.png\' />')
       }]
     };
 

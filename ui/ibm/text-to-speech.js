@@ -71,6 +71,9 @@ var TTSModule = (function() {
         if (button.value === 'ON') {
           // Takes text, voice, and token and returns speech
           if (payload.text) { // If payload.text is defined
+            if(payload.text[payload.text.length-1] == "?") { // if Watson is asking the user a question,
+              payload['ref'] = 'STT';  // allow the user to respond with the mic on
+            }
             // Pauses the audio for older message if there is a more current message
             if (audio !== null && !audio.ended) {
               audio.pause();

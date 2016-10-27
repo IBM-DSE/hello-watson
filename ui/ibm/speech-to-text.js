@@ -1,4 +1,3 @@
-
 /*
  * Copyright © 2016 I.B.M. All rights reserved.
  *
@@ -16,12 +15,12 @@
  */
 /* global WatsonSpeech: true, Conversation: true, Api: true Common: true*/
 
-var STTModule = (function() {
+var STTModule = (function () {
   'use strict';
-  var mic        = document.getElementById('input-mic');
-  var recording  = false;
+  var mic = document.getElementById('input-mic');
+  var recording = false;
   var stream;
-  var records    = 0;
+  var records = localStorage.getItem("mic_records") || 0;
 
   return {
     micON: micON,
@@ -36,7 +35,7 @@ var STTModule = (function() {
   function checkBrowsers() {
     // Check if browser supports speech
     if (!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-              navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
+      navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
       Common.hide(mic);
     }
   }
@@ -44,8 +43,14 @@ var STTModule = (function() {
   function micON() { // When the microphone button is clicked
     if (recording === false) {
       if (records === 0) { // The first time the mic is clicked - inform user
-        Api.setWatsonPayload({output: {text: ['Accept the microphone prompt in your browser. Watson will listen soon.'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
+        Api.setWatsonPayload({
+          output: {
+            text: ['Accept the microphone prompt in your browser. Watson will listen soon.'],
+            ref: 'STT'
+          }
+        }); // Dialog box output to let the user know we're recording
         records++;
+        localStorage.setItem("mic_records", records);
       } else {
         Api.setWatsonPayload({output: {ref: 'STT'}}); // Let the user record right away
       }
@@ -59,10 +64,10 @@ var STTModule = (function() {
     mic.setAttribute('class', 'active-mic');  // Set CSS class of mic to indicate that we're currently listening to user input
     recording = true;                         // We'll be recording very shortly
     fetch('/api/speech-to-text/token')        // Fetch authorization token for Watson Speech-To-Text
-      .then(function(response) {
+      .then(function (response) {
         return response.text();
       })
-      .then(function(token) {                 // Pass token to Watson Speech-To-Text service
+      .then(function (token) {                 // Pass token to Watson Speech-To-Text service
         stream = WatsonSpeech.SpeechToText.recognizeMicrophone({
           token: token,                       // Authorization token to use this service, configured from /speech/stt-token.js file
           continuous: false,                  // False = automatically stop transcription the first time a pause is detected
@@ -73,7 +78,7 @@ var STTModule = (function() {
         });
 
         stream.promise()                                // Once all data has been processed...
-          .then(function(data) {                        // ...put all of it into a single array
+          .then(function (data) {                        // ...put all of it into a single array
             mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
             recording = false;                          // We aren't recording anymore
             if (data.length !== 0) {                    // If data is not empty (the user said something)
@@ -85,7 +90,7 @@ var STTModule = (function() {
               Api.setWatsonPayload({output: {text: ['Microphone input cancelled. Please press the button to speak to Watson again']}}); // If the user clicked the microphone button again to cancel current input
             }
           })
-          .catch(function(err) { // Catch any errors made during the promise
+          .catch(function (err) { // Catch any errors made during the promise
             if (err !== 'Error: No speech detected for 5s.') { // This error will always occur when Speech-To-Text times out, so don't log it (but log everything else)
               console.log(err);
             }
@@ -93,7 +98,7 @@ var STTModule = (function() {
             Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Please press the button to speak to Watson again.']}});
           });
       })
-      .catch(function(error) { // Catch any other errors and log them
+      .catch(function (error) { // Catch any other errors and log them
         console.log(error);
       });
   }

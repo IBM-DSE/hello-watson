@@ -33,65 +33,65 @@ var ConversationResponse = (function() {
     setupResponseHandling();
   }
 
-  function setupResponseFunctions() {
-    responseFunctions = {
-      turn_on: {
-        appliance: {
-          AC: function() { Panel.ac('lo'); },
-          fan: function() { Panel.ac('lo'); },
-          heater: function() { Panel.heat('lo'); },
-          lights: function() { Animations.lightsOn(); },
-          wipers: function() { Animations.wipersOn('lo'); }
-        },
-        genre: function(value) { Panel.playMusic(value); }
-      },
-      turn_off: {
-        appliance: {
-          lights: function() { Animations.lightsOff(); },
-          wipers: function() { Animations.wipersOff(); }
-        }
-      },
-      turn_up: {
-        appliance: {
-          AC: function() { Panel.ac('hi'); },
-          fan: function() { Panel.ac('hi'); },
-          heater: function() { Panel.heat('hi'); },
-          music: function() { Panel.playMusic('general'); },
-          wipers: function() { Animations.wipersOn('hi'); }
-        },
-        genre: function(value) { Panel.playMusic(value); }
-      },
-      turn_down: {
-        appliance: {
-          AC: function() { Panel.ac('lo'); },
-          fan: function() { Panel.ac('lo'); },
-          heater: function() { Panel.heat('lo'); },
-          music: function() { Panel.playMusic('general'); },
-          wipers: function() { Animations.wipersOn('lo'); }
-        },
-        genre: function(value) { Panel.playMusic(value); }
-      },
-      locate_amenity: {
-        amenity: {
-          gas: function() { Panel.mapGas(); },
-          restaurant: function() { Panel.mapFoodCuisine(); },
-          restroom: function() { Panel.mapRestrooms(); }
-        },
-        option: function(choice) { Panel.mapNavigation(choice); },
-        cuisine: function() { Panel.mapFoodNumbers(); },
-        func: function() { Panel.mapGeneral(); }
-      },
-      off_topic: {
-        amenity: {
-          gas: function() { Panel.mapGas(); },
-          restaurant: function() { Panel.mapFoodCuisine(); },
-          restroom: function() { Panel.mapRestrooms(); }
-        },
-        cuisine: function() { Panel.mapFoodNumbers(); },
-        genre: function(value) { Panel.playMusic(value); }
-      }
-    };
-  }
+  // function setupResponseFunctions() {
+  //   responseFunctions = {
+  //     turn_on: {
+  //       appliance: {
+  //         AC: function() { Panel.ac('lo'); },
+  //         fan: function() { Panel.ac('lo'); },
+  //         heater: function() { Panel.heat('lo'); },
+  //         lights: function() { Animations.lightsOn(); },
+  //         wipers: function() { Animations.wipersOn('lo'); }
+  //       },
+  //       genre: function(value) { Panel.playMusic(value); }
+  //     },
+  //     turn_off: {
+  //       appliance: {
+  //         lights: function() { Animations.lightsOff(); },
+  //         wipers: function() { Animations.wipersOff(); }
+  //       }
+  //     },
+  //     turn_up: {
+  //       appliance: {
+  //         AC: function() { Panel.ac('hi'); },
+  //         fan: function() { Panel.ac('hi'); },
+  //         heater: function() { Panel.heat('hi'); },
+  //         music: function() { Panel.playMusic('general'); },
+  //         wipers: function() { Animations.wipersOn('hi'); }
+  //       },
+  //       genre: function(value) { Panel.playMusic(value); }
+  //     },
+  //     turn_down: {
+  //       appliance: {
+  //         AC: function() { Panel.ac('lo'); },
+  //         fan: function() { Panel.ac('lo'); },
+  //         heater: function() { Panel.heat('lo'); },
+  //         music: function() { Panel.playMusic('general'); },
+  //         wipers: function() { Animations.wipersOn('lo'); }
+  //       },
+  //       genre: function(value) { Panel.playMusic(value); }
+  //     },
+  //     locate_amenity: {
+  //       amenity: {
+  //         gas: function() { Panel.mapGas(); },
+  //         restaurant: function() { Panel.mapFoodCuisine(); },
+  //         restroom: function() { Panel.mapRestrooms(); }
+  //       },
+  //       option: function(choice) { Panel.mapNavigation(choice); },
+  //       cuisine: function() { Panel.mapFoodNumbers(); },
+  //       func: function() { Panel.mapGeneral(); }
+  //     },
+  //     off_topic: {
+  //       amenity: {
+  //         gas: function() { Panel.mapGas(); },
+  //         restaurant: function() { Panel.mapFoodCuisine(); },
+  //         restroom: function() { Panel.mapRestrooms(); }
+  //       },
+  //       cuisine: function() { Panel.mapFoodNumbers(); },
+  //       genre: function(value) { Panel.playMusic(value); }
+  //     }
+  //   };
+  // }
 
   // Create a callback when a new Watson response is received to handle Watson's response
   function setupResponseHandling() {

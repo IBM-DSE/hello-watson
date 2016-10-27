@@ -1,13 +1,21 @@
-# Conversation Car Dashboard Demo Application
-[![Build Status](https://travis-ci.org/watson-developer-cloud/car-dashboard.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/car-dashboard)
-[![codecov.io](https://codecov.io/github/watson-developer-cloud/conversation-simple/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/car-dashboard?branch=master)
+# Hello Watson
+<!--[![Build Status](https://travis-ci.org/watson-developer-cloud/car-dashboard.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/car-dashboard)-->
+<!--[![codecov.io](https://codecov.io/github/watson-developer-cloud/conversation-simple/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/car-dashboard?branch=master)-->
 
+This application uses Watson's intelligence to provide an interactive chatbot with a graphical & vocal interface.
 
-This application demonstrates how the Conversation service uses intent capabilities in an animated car dashboard UI.
+It uses the following Watson Developer Cloud services:
+- [Watson Speech to Text](http://www.ibm.com/watson/developercloud/speech-to-text.html)
+- Watson Conversation
+- Watson Text to Speech
+
+[See the demo](http://conversation-demo.mybluemix.net/).
+
+This app is based off of the [Conversation Car Dashboard Demo Application](https://conversation-demo.mybluemix.net/) and the code was forked from [this GitHub Repository](https://github.com/watson-developer-cloud/car-dashboard)
 
 For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/index.shtml).
 
-[See the demo](http://conversation-demo.mybluemix.net/).
+<!--TODO: Update the rest of the documentation-->
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
