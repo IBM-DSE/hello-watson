@@ -1,24 +1,10 @@
 ---
-declared-services:
-  conversation-service:
-    label: conversation
-    plan: free
-  speech-to-text-service:
-    label: speech_to_text
-    plan: standard
-  text-to-speech-service:
-    label: text_to_speech
-    plan: standard
 applications:
-- name: car-dashboard
+- name: Hello Watson
   command: npm start
-  path: .
-  memory: 256M
-  instances: 1
-  disk_quota: 1024M
   services:
-  - conversation-service
-  - speech-to-text-service
-  - text-to-speech-service
+  - SpeechToText
+  - TextToSpeech
+  - WatsonConversation
   env:
     NPM_CONFIG_PRODUCTION: false

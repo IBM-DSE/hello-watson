@@ -19,6 +19,7 @@
 // TODO create alternative to read from VCAP services file
 require('dotenv').config({silent: true});
 var express = require('express');
+var extend = require('util')._extend;
 var compression = require('compression');
 var bodyParser = require('body-parser');  // parser for post requests
 var watson = require('watson-developer-cloud');
@@ -40,8 +41,6 @@ if (cloudantCredentials) {
 }
 cloudantUrl = cloudantUrl || process.env.CLOUDANT_URL; // || '<cloudant_url>';
 
-//The conversation workspace id
-var workspace_id = process.env.WORKSPACE_ID || null;
 var logs = null;
 
 var app = express();
@@ -52,13 +51,16 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/dist"));
 
 // Create the service wrapper
-var conversation = watson.conversation({
+var conversationConfig = extend({
   username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
-  version_date: '2016-07-11',
+  version_date: '2016-09-20',
   version: 'v1'
-});
+}, vcapServices.getCredentials('conversation'));
+var conversation = watson.conversation(conversationConfig);
 
+//The conversation workspace id
+var workspace_id = process.env.WORKSPACE_ID || null;
 
 // Endpoint to be call from the client side
 app.post('/api/message', function (req, res) {

@@ -46,6 +46,7 @@ var STTModule = (function () {
         Api.setWatsonPayload({
           output: {
             text: ['Accept the microphone prompt in your browser. Watson will listen soon.'],
+            speech: false,
             ref: 'STT'
           }
         }); // Dialog box output to let the user know we're recording

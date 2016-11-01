@@ -1,5 +1,5 @@
 {
-  "name": "conversation-car-dashboard",
+  "name": "hello-watson",
   "version": "0.0.1",
   "private": true,
   "main": "server.js",
@@ -26,7 +26,7 @@
     "request": "^2.72.0",
     "uuid": "2.0.2",
     "vcap_services": "^0.2.0",
-    "watson-developer-cloud": "^1.12.2",
+    "watson-developer-cloud": "^2.8.1",
     "watson-speech": "^0.19.1"
   },
   "devDependencies": {
