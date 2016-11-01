@@ -45,7 +45,7 @@ var TTSModule = (function() {
   // TTS only works in Chrome and Firefox
   function checkBrowsers() {
     if ((navigator.getUserMedia || navigator.webkitGetUserMedia ||
-              navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
+      navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
       Common.show(button); // Show button only if in valid browsers
     }
   }
@@ -63,43 +63,47 @@ var TTSModule = (function() {
   }
 
   // Stops the audio for an older message and plays audio for current message
-  function playCurrentAudio(payload) {
+  function playCurrentAudio(output) {
     fetch('/api/text-to-speech/token') // Retrieve TTS token
       .then(function(response) {
         return response.text();
       }).then(function(token) {
-        if (button.value === 'ON') {
-          // Takes text, voice, and token and returns speech
-          if (payload.text) { // If payload.text is defined
-            if(payload.text[payload.text.length-1] == "?") { // if Watson is asking the user a question,
-              payload['ref'] = 'STT';  // allow the user to respond with the mic on
-            }
-            // Pauses the audio for older message if there is a more current message
-            if (audio !== null && !audio.ended) {
-              audio.pause();
-            }
-            audio = WatsonSpeech.TextToSpeech.synthesize({
-              text: payload.text, // Output text/response
-              voice: 'en-US_MichaelVoice', // Default Watson voice
-              autoPlay: true, // Automatically plays audio
-              token: token
-            });
-            // When the audio stops playing
-            audio.onended = function() {
-              allowSTT(payload); // Check if user wants to use STT
-            };
-          } else {
-            // Pauses the audio for older message if there is a more current message
-            if (audio !== null && !audio.ended) {
-              audio.pause();
-            }
-            // When payload.text is undefined
-            allowSTT(payload); // Check if user wants to use STT
+      if (button.value === 'ON' && ( typeof output.speech == 'undefined' || output.speech )) {
+        // Takes text, voice, and token and returns speech
+
+        if (output.text) { // If payload.text is defined
+
+          var voice_output = output.speech ? output.speech : output.text;
+
+          if (voice_output[voice_output.length - 1] == "?" || output.autoMic) { // if Watson is asking the user a question,
+            output['ref'] = 'STT';  // allow the user to respond with the mic on
           }
-        } else { // When TTS is muted
-          allowSTT(payload); // Check if user wants to use STT
+          // Pauses the audio for older message if there is a more current message
+          if (audio !== null && !audio.ended) {
+            audio.pause();
+          }
+          audio = WatsonSpeech.TextToSpeech.synthesize({
+            text: voice_output, // Output text/response
+            voice: 'en-US_MichaelVoice', // Default Watson voice
+            autoPlay: true, // Automatically plays audio
+            token: token
+          });
+          // When the audio stops playing
+          audio.onended = function() {
+            allowSTT(output); // Check if user wants to use STT
+          };
+        } else {
+          // Pauses the audio for older message if there is a more current message
+          if (audio !== null && !audio.ended) {
+            audio.pause();
+          }
+          // When payload.text is undefined
+          allowSTT(output); // Check if user wants to use STT
         }
-      });
+      } else { // When TTS is muted
+        allowSTT(output); // Check if user wants to use STT
+      }
+    });
   }
 
   // Check ref for 'STT' and allow user to use STT

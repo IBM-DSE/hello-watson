@@ -87,7 +87,7 @@ var STTModule = (function () {
                 Conversation.sendMessage();             // Send the message to Watson Conversation
               }
             } else { // If there isn't any data to be handled by the conversation, display a message to the user letting them know
-              Api.setWatsonPayload({output: {text: ['Microphone input cancelled. Please press the button to speak to Watson again']}}); // If the user clicked the microphone button again to cancel current input
+              // Api.setWatsonPayload({output: {text: ['Microphone input cancelled. Please press the button to speak to Watson again'], speech: false}}); // If the user clicked the microphone button again to cancel current input
             }
           })
           .catch(function (err) { // Catch any errors made during the promise
@@ -95,7 +95,7 @@ var STTModule = (function () {
               console.log(err);
             }
             mic.setAttribute('class', 'inactive-mic'); // Reset our microphone button to visually indicate we aren't listening to user anymore
-            Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Please press the button to speak to Watson again.']}});
+            // Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Please press the button to speak to Watson again.'], speech: false}});
           });
       })
       .catch(function (error) { // Catch any other errors and log them

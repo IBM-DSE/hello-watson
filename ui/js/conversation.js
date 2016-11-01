@@ -53,6 +53,7 @@ var Conversation = (function() {
     chatSetup();
     initEnterSubmit();
     setupInputBox();
+    Api.initConversation(); // Load initial Watson greeting
   }
 
   // Hide chat box until there are messages,

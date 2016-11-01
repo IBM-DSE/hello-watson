@@ -16,10 +16,10 @@
 
 var exports = module.exports = {};
 
-exports.handle_message = function(res, watson_data){
+exports.handle_message = function(res, watson_data) {
 
-    // watson_data.output.text = "My custom output"
-    // watson_data.context.variable = "My custom variable value"
+  // watson_data.output.text = "My custom output"
+  // watson_data.context.variable = "My custom variable value"
 
-    return res.json(watson_data);
+  return res.json(watson_data);
 };
