@@ -40,6 +40,7 @@ var STTModule = (function () {
     }
   }
 
+  //TODO: radio button option to automatically turn on mic for a question, always, & never
   function micON() { // When the microphone button is clicked
     if (recording === false) {
       if (records === 0) { // The first time the mic is clicked - inform user

@@ -183,28 +183,41 @@ var Conversation = (function() {
   }
 
   // Display a message, given a message payload and a message type (user or Watson)
-  // TODO: Allow multi-line responses
   // TODO: Make sure that newline characters at the end don't mess with the question mark detection
   function displayMessage(newPayload, typeValue) {
     var isUser = isUserMessage(typeValue);
     var textExists = (newPayload.input && newPayload.input.text)
       || (newPayload.output && newPayload.output.text);
     if (isUser !== null && textExists) {
-      if (newPayload.output && Object.prototype.toString.call( newPayload.output.text ) === '[object Array]') {
-        newPayload.output.text = newPayload.output.text.filter(function(item) {
-          return item && item.length > 0;
-        }).join(' ');
-      }
+      // if (newPayload.output && Object.prototype.toString.call( newPayload.output.text ) === '[object Array]') {
+      //   newPayload.output.text = newPayload.output.text.filter(function(item) {
+      //     return item && item.length > 0;
+      //   }).join(' ');
+      // }
       var dataObj = isUser ? newPayload.input : newPayload.output;
-
-      if (!String(dataObj.text).trim()) {
+      var text = dataObj.text;
+      if (!String(text).trim()) {
         return;
       }
-      var messageDiv = buildMessageDomElement(newPayload, isUser);
-
 
       var chatBoxElement = document.getElementById(ids.chatFlow);
-      chatBoxElement.appendChild(messageDiv);
+
+      //TODO: Improve image displaying standard
+      if(Array.isArray(text)){
+        for(var i in text){
+          var img_url;
+          if(newPayload.output){
+            if(newPayload.output.image && i == text.length-1){
+              img_url = newPayload.output.image;
+            }
+          }
+          var messageDiv = buildMessageDomElement(text[i], isUser, img_url);
+          chatBoxElement.appendChild(messageDiv);
+        }
+      } else {
+        var messageDiv = buildMessageDomElement(text, isUser);
+        chatBoxElement.appendChild(messageDiv);
+      }
       updateChat();
     }
   }
@@ -220,19 +233,31 @@ var Conversation = (function() {
   }
 
   // Builds the message DOM element (using auxiliary function Common.buildDomElement)
-  function buildMessageDomElement(newPayload, isUser) {
-    var dataObj = isUser ? newPayload.input : newPayload.output;
+  function buildMessageDomElement(text, isUser, image_url) {
+    // var dataObj = isUser ? newPayload.input : newPayload.output;
+
+    var content = [];
+    if(isUser) content += '<img src=\'/images/head.svg\' />';
+    content += {
+      'tagName': 'p',
+      'html': text
+    };
+    if(!isUser) content += '<img src=\'/images/watson-logo-round.png\' />';
+
+    var img_msg = image_url ? '<img src='+image_url+' class=\'msg\'/>' + text : text;
+
     var messageJson = {
       // <div class='user / watson'>
       'tagName': 'div',
       'classNames': ['message-wrapper', (isUser ? authorTypes.user : authorTypes.watson)],
       'children': [{
         // <p class='user-message / watson-message'>
-        'tagName': 'p',
+        'tagName': 'div',
         'classNames': (isUser
           ? [authorTypes.user + '-message']
           : [authorTypes.watson + '-message']),//, classes.preBar
-        'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text + '<img src=\'/images/watson-logo-round.png\' />')
+        // 'children': content
+        'html': (isUser ? '<img src=\'/images/head.svg\' />' + text : img_msg + '<img src=\'/images/watson-logo-round.png\' />')
       }]
     };
 

@@ -21,8 +21,8 @@
 }
 
 #input-mic-holder {
-    height: 6rem;
-    width: 6rem;
+    height: 8rem;
+    width: 8rem;
     position: relative;
 }
 
@@ -64,10 +64,10 @@
 #output-audio {
     position: absolute;
     z-index: 10;
-    left: 2rem;
+    right: 2rem;
     top: 1rem;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 5rem;
+    width: 5rem;
     border-radius: 1.75rem;
     cursor: pointer;
     background-repeat: no-repeat;
@@ -169,39 +169,12 @@ input#user-input:-moz-placeholder {
     opacity: 0;
 }
 
-#chat-scroll-wrapper {
-    /*position: absolute;*/
-    bottom: 2rem;
-    max-height: 100%;
-    padding-top: 0.3125rem;
-    /*margin-left: 12rem;*/
-    border-top-left-radius: 0.625rem;
-    border-top-right-radius: 0.625rem;
-    background: rgba(0, 0, 0, 0.3);
-}
-
-#chat-flow {
-    /*text-align: left;*/
-    width: 100%;
-    /*height: 100%;*/
-    /*flex: 1 1 auto;*/
-    /*max-height: 100%;*/
-    /*width: calc(100% + 20px);*/
-    max-height: 40rem;
-    overflow: hidden;
-}
-
-#chat-flow:hover {
-    overflow-y: auto;
-}
-
 .user, .watson {
 
     display: block;
     overflow: visible;
     position: relative;
     margin: 0 5.3125rem;
-    /*max-width:  30rem;*/
 }
 
 .user{text-align: left;}
@@ -222,7 +195,6 @@ input#user-input:-moz-placeholder {
 
 .watson-message {
     background: #4178BE;
-    /*float: right;*/
 }
 
 .user-message {
@@ -242,21 +214,26 @@ input#user-input:-moz-placeholder {
 
 .watson-message::after {
     right: -1.65rem;
+    bottom: 1.5rem;
     border-left-color: #4178BE;
 }
 
-.user img {
+.user img:not(.msg) {
     height: 5.2rem;
     position: absolute;
     left: -5.2rem;
     top: 0.1rem;
 }
 
-.watson img {
+.watson img:not(.msg) {
     height: 4.5rem;
     position: absolute;
     right: -5.2rem;
     bottom: 0.2rem;
+}
+
+.watson img.msg {
+    height: 50px;
 }
 
 .watson .pre-bar::before {

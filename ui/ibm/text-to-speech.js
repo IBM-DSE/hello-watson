@@ -75,9 +75,6 @@ var TTSModule = (function() {
 
           var voice_output = output.speech ? output.speech : output.text;
 
-          if (voice_output[voice_output.length - 1] == "?" || output.autoMic) { // if Watson is asking the user a question,
-            output['ref'] = 'STT';  // allow the user to respond with the mic on
-          }
           // Pauses the audio for older message if there is a more current message
           if (audio !== null && !audio.ended) {
             audio.pause();
