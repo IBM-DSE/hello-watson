@@ -73,7 +73,12 @@ var TTSModule = (function() {
 
         if (output.text) { // If payload.text is defined
 
+          // prefer the output speech, otherwise read the output text
           var voice_output = output.speech ? output.speech : output.text;
+
+          // TODO: describe this in the README
+          if (output.autoMic)       // if the output autoMic variable has been set to true,
+            output['ref'] = 'STT';  // set ref:'STT' to automatically turn on the microphone
 
           // Pauses the audio for older message if there is a more current message
           if (audio !== null && !audio.ended) {

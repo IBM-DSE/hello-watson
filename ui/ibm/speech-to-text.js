@@ -23,7 +23,7 @@ var STTModule = (function () {
   var records = localStorage.getItem("mic_records") || 0;
 
   return {
-    micON: micON,
+    toggle: toggle,
     speechToText: speechToText,
     init: init
   };
@@ -41,7 +41,7 @@ var STTModule = (function () {
   }
 
   //TODO: radio button option to automatically turn on mic for a question, always, & never
-  function micON() { // When the microphone button is clicked
+  function toggle() { // When the microphone button is clicked
     if (recording === false) {
       if (records === 0) { // The first time the mic is clicked - inform user
         Api.setWatsonPayload({
@@ -62,9 +62,18 @@ var STTModule = (function () {
     }
   }
 
+  function micOn(){
+    mic.setAttribute('class', 'active-mic');    // Set CSS class of mic to indicate that we're currently listening to user input
+    recording = true;                           // We'll be recording very shortly
+  }
+
+  function micOff(){
+    mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
+    recording = false;                          // We aren't recording anymore
+  }
+
   function speechToText() {
-    mic.setAttribute('class', 'active-mic');  // Set CSS class of mic to indicate that we're currently listening to user input
-    recording = true;                         // We'll be recording very shortly
+    micOn();                                  // Turn on the mic
     fetch('/api/speech-to-text/token')        // Fetch authorization token for Watson Speech-To-Text
       .then(function (response) {
         return response.text();
@@ -80,9 +89,8 @@ var STTModule = (function () {
         });
 
         stream.promise()                                // Once all data has been processed...
-          .then(function (data) {                        // ...put all of it into a single array
-            mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
-            recording = false;                          // We aren't recording anymore
+          .then(function (data) {                       // ...put all of it into a single array
+            micOff();                                   // turn off the mic
             if (data.length !== 0) {                    // If data is not empty (the user said something)
               var dialogue = data.pop();                // Get the last data variable from the data array, which will be the finalized Speech-To-Text transcript
               if ((dialogue.alternatives[0].transcript !== '') && (dialogue.final === true)) { // Another check to verify that the transcript is not empty and that this is the final dialog
@@ -94,14 +102,14 @@ var STTModule = (function () {
           })
           .catch(function (err) { // Catch any errors made during the promise
             if (err !== 'Error: No speech detected for 5s.') { // This error will always occur when Speech-To-Text times out, so don't log it (but log everything else)
-              console.log(err);
+              console.error(err);
             }
-            mic.setAttribute('class', 'inactive-mic'); // Reset our microphone button to visually indicate we aren't listening to user anymore
-            // Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Please press the button to speak to Watson again.'], speech: false}});
+            micOff();
+            // TODO: make this an overlay: Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Please press the button to speak to Watson again.'], speech: false}});
           });
       })
       .catch(function (error) { // Catch any other errors and log them
-        console.log(error);
+        console.error(error);
       });
   }
 })();

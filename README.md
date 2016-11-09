@@ -18,18 +18,10 @@ For more information about Conversation, see the [detailed documentation](http:/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
 ## How the app works
-The app interface is designed and trained for chatting with a cognitive car. The interface allows the user to enter input either 
-using text, in the edit field at the bottom of the UI or via speech via by pressing the mic button. 
-Your questions and commands are run against a
-small set of sample data trained with intents like these:
-
-* `turn_on`
-* `weather`
-* `capabilities`
-
-These intents help the system to understand variations of questions and commands that you might submit.
-For example, if you say *"Wipers on"* or *"I want to turn on the windshield wipers"*, the system
-understands that in both cases your intent is the same and responds accordingly.
+The app interface is designed to interface with Watson Conversation. The interface allows the user to enter input either: 
+* using text through the edit field at the top of the UI 
+OR
+* via speech by pressing the mic button. 
 
 <a name="bluemix">
 # Getting Started using Bluemix
