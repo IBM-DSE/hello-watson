@@ -1,6 +1,6 @@
 ---
 applications:
-- name: Hello Watson
+- name: Watson-Panasonic Demo
   command: npm start
   services:
   - SpeechToText
