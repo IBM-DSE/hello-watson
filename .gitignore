@@ -1,10 +1,7 @@
 node_modules/
 dist/
+.idea/
 temp/
-.idea/
 coverage
-.env
 npm-debug.log
-.idea/
-dist/
-ui/bootstrap/
+.env

@@ -15,6 +15,7 @@
  */
 /* global WatsonSpeech: true, Conversation: true, Api: true Common: true*/
 
+//TODO: See if anything can be improved from the speech-to-text-demo
 var STTModule = (function () {
   'use strict';
   var mic = document.getElementById('input-mic');
@@ -87,7 +88,6 @@ var STTModule = (function () {
           format: false,                      // Inhibits errors
           keepMicrophone: true                // Avoids repeated permissions prompts in FireFox
         });
-
         stream.promise()                                // Once all data has been processed...
           .then(function (data) {                       // ...put all of it into a single array
             micOff();                                   // turn off the mic
