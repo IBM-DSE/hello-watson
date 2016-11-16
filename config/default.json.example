@@ -1,0 +1,20 @@
+{
+  "VCAP_SERVICES": {
+    "speech_to_text": [
+      {
+        "credentials": {
+          "password": "",
+          "username": ""
+        }
+      }
+    ],
+    "text_to_speech": [
+      {
+        "credentials": {
+          "password": "",
+          "username": ""
+        }
+      }
+    ]
+  }
+}

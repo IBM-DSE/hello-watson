@@ -23,6 +23,7 @@
     <!-- build:css css/main.min.css -->
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dropdowns-enhancement.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/conversation.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
@@ -37,14 +38,34 @@
 
 <div class="box">
     <header>
-        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
         <div class="centered-content"><h1>Hello, Watson!</h1></div>
+
+        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
+
+        <div id="mic-settings-wrapper" style="position:absolute; top: 1rem; left: 1rem">
+            <div class="btn-group">
+                <button data-toggle="dropdown" data-placeholder="false"
+                        class="btn btn-default dropdown-toggle">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </button>
+                <ul id="mic-setting" class="dropdown-menu">
+                    <li><input type="radio" id="auto" name="NAME" value="auto">
+                        <label for="auto">Auto Mic</label></li>
+                    <li><input type="radio" id="manual" name="NAME" value="manual">
+                        <label for="manual">Manual Mic</label></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="chat-wrapper">
             <div id="input-wrapper" class="responsive-columns-wrapper">
+
 
                 <div id="input-mic-holder">
                     <div id="input-mic" class="inactive-mic" onclick="STTModule.toggle()"></div>
                 </div>
+
+
 
                 <label for="user-input" class="input-outline responsive-column">
                     <input id="user-input" type="text" placeholder="<- Press and speak">
@@ -60,9 +81,25 @@
     </content>
 </div>
 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+  var mic_setting = localStorage.getItem("mic_setting") || 'auto';
+  $(function() { $("#mic-setting li input[value='" + mic_setting + "']").prop('checked', true); });
+
+  $('#mic-setting li').on('click', function() {
+    mic_setting = $(this)[0].firstChild.value;
+    localStorage.setItem("mic_setting", mic_setting);
+    console.log(mic_setting);
+  });
+</script>
+
 <!-- build:js vendor.min.js -->
 <script src="js/libs/snap.svg.js"></script>
 <script src="./../node_modules/whatwg-fetch/fetch.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/dropdowns-enhancement.js"></script>
 <!-- endbuild -->
 <!-- build:js conversation.min.js -->
 <script src="js/common.js"></script>

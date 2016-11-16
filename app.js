@@ -18,17 +18,23 @@
 
 // TODO create alternative to read from VCAP services file
 require('dotenv').config({silent: true});
-var express = require('express');
-var extend = require('util')._extend;
-var compression = require('compression');
-var bodyParser = require('body-parser');  // parser for post requests
-var watson = require('watson-developer-cloud');
+
+var express = require('express'),
+  extend = require('util')._extend,
+  config = require('config'),
+  vcapServices = require('vcap_services'),
+  compression = require('compression'),
+  bodyParser = require('body-parser'),  // parser for post requests
+  watson = require('watson-developer-cloud');
+
 //The following requires are needed for logging purposes
-var uuid = require('uuid');
-var csv = require('express-csv');
-var vcapServices = require('vcap_services');
-var basicAuth = require('basic-auth-connect');
-var fulfillment = require('./fulfillment');
+var uuid = require('uuid'),
+  csv = require('express-csv'),
+  basicAuth = require('basic-auth-connect'),
+  fulfillment = require('./fulfillment');
+
+// load VCAP_SERVICES from (default).json file
+process.env['VCAP_SERVICES'] = JSON.stringify(config.get('VCAP_SERVICES'));
 
 //The app owner may optionally configure a cloudand db to track user input.
 //This cloudand db is not required, the app will operate without it.

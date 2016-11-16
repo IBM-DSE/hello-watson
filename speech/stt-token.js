@@ -24,9 +24,9 @@ var sttConfig = extend({
 var sttAuthService = watson.authorization(sttConfig);
 
 // Inform user that STT is not configured properly or at all
-if ( !sttUsername || sttUsername === '<username>' || !sttPassword || sttPassword === '<password>' ) {
+if ( !sttConfig.username || sttConfig.username === '<username>' || !sttConfig.password || sttConfig.password === '<password>' ) {
   if (sttInform === 0){
-    console.log('WARNING: The app has not been configured with a SPEECH_TO_TEXT_USERNAME and/or a SPEECH_TO_TEXT_PASSWORD environment variable. If you wish to have speech to text in your working application, please refer to the https://github.com/watson-developer-cloud/car-dashboard README documentation on how to set these variables.');
+    console.log('WARNING: The app has not been configured with a SPEECH_TO_TEXT_USERNAME and/or a SPEECH_TO_TEXT_PASSWORD environment variable. If you wish to have speech to text in your working application, please refer to the https://github.ibm.com/dlthomas/hello-watson README documentation on how to set these variables.');
     sttInform ++;
   }
 }
