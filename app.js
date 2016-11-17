@@ -92,12 +92,14 @@ app.post('/api/message', function (req, res) {
   if (req.body) {
     if (req.body.input) {
       payload.input = req.body.input;
+      payload.input.text = payload.input.text.trim();
     }
     if (req.body.context) {
       // The client must maintain context/state
       payload.context = req.body.context;
     }
   }
+
   // Send the input to the conversation service
   conversation.message(payload, function (err, data) {
     if (err) {

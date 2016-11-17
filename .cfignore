@@ -4,4 +4,6 @@ dist/
 temp/
 npm-debug.log
 .env*
-config/default.json
+config/
+readme_images/
+training/

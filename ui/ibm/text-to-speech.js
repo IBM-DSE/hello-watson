@@ -91,7 +91,7 @@ var TTSModule = (function() {
           });
           // When the audio stops playing
           audio.onended = function() {
-            allowSTT(output); // Check if user wants to use STT
+            allowSTT(output, voice_output); // Check if user wants to use STT
           };
         } else {
           // Pauses the audio for older message if there is a more current message
@@ -99,18 +99,19 @@ var TTSModule = (function() {
             audio.pause();
           }
           // When payload.text is undefined
-          allowSTT(output); // Check if user wants to use STT
+          allowSTT(output, voice_output); // Check if user wants to use STT
         }
       } else { // When TTS is muted
-        allowSTT(output); // Check if user wants to use STT
+        allowSTT(output, voice_output); // Check if user wants to use STT
       }
     });
   }
 
   // Check ref for 'STT' and allow user to use STT
-  function allowSTT(payload) {
+  function allowSTT(payload, voice_output) {
+    //TODO: prevent activation when audio is muted
     //TODO: radio button option to automatically turn on mic for a question, always, & never
-    if (payload.ref === 'STT' || mic_setting === 'auto' && payload.autoMic) { // TODO: describe this in the README
+    if (mic_setting === 'always' || payload.ref === 'STT' || mic_setting === 'prompt' && (payload.autoMic || voice_output[voice_output.length-1]==='?')) { // TODO: describe this in the README
       STTModule.speechToText();
     }
   }

@@ -76,6 +76,7 @@ var STTModule = (function() {
     recording = false;                          // We aren't recording anymore
   }
 
+  //TODO: only auto-mic if the last user input was voice
   function speechToText() {
 
     fetch('/api/speech-to-text/token')        // Fetch authorization token for Watson Speech-To-Text

@@ -26,7 +26,6 @@ var Conversation = (function() {
   'use strict';
   var ids = {
     userInput: 'user-input',
-    userInputDummy: 'user-input-dummy',
     chatFlow: 'chat-flow',
     chatScrollWrapper: 'chat-scroll-wrapper'
   };
