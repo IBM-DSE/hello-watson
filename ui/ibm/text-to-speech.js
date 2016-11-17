@@ -38,7 +38,7 @@ var TTSModule = (function() {
     var currentResponsePayloadSetter = Api.setWatsonPayload;
     Api.setWatsonPayload = function(payload) {
       currentResponsePayloadSetter.call(Api, payload);
-      playCurrentAudio(payload.output); // Plays audio using output text
+      playCurrentAudio(payload.output); // Plays audio using output speech or text
     };
   }
 
@@ -76,9 +76,8 @@ var TTSModule = (function() {
           // prefer the output speech, otherwise read the output text
           var voice_output = output.speech ? output.speech : output.text;
 
-          // TODO: describe this in the README
-          if (output.autoMic)       // if the output autoMic variable has been set to true,
-            output['ref'] = 'STT';  // set ref:'STT' to automatically turn on the microphone
+          // join array of strings into one string of sentences for correct voice output
+          if(Array.isArray(voice_output)) voice_output = voice_output.join('. ');
 
           // Pauses the audio for older message if there is a more current message
           if (audio !== null && !audio.ended) {
@@ -110,7 +109,8 @@ var TTSModule = (function() {
 
   // Check ref for 'STT' and allow user to use STT
   function allowSTT(payload) {
-    if (payload.ref === 'STT') {
+    //TODO: radio button option to automatically turn on mic for a question, always, & never
+    if (payload.ref === 'STT' || mic_setting === 'auto' && payload.autoMic) { // TODO: describe this in the README
       STTModule.speechToText();
     }
   }

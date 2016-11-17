@@ -24,7 +24,7 @@ var ttsConfig = extend({
 var ttsAuthService = watson.authorization(ttsConfig);
 
 // Inform user that TTS is not configured properly or at all
-if ( !ttsUsername || ttsUsername === '<username>' || !ttsPassword || ttsPassword === '<password>' ) {
+if ( !ttsConfig.username || ttsConfig.username === '<username>' || !ttsConfig.password || ttsConfig.password === '<password>' ) {
   if (ttsInform === 0){
     console.log('WARNING: The app has not been configured with a TEXT_TO_SPEECH_USERNAME and/or a TEXT_TO_SPEECH_PASSWORD environment variable. If you wish to have text to speech in your working application, please refer to the https://github.com/watson-developer-cloud/car-dashboard README documentation on how to set these variables.');
     ttsInform ++;

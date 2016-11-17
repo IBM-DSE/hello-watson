@@ -16,19 +16,24 @@
 
 'use strict';
 
-// TODO create alternative to read from VCAP services file
 require('dotenv').config({silent: true});
-var express = require('express');
-var extend = require('util')._extend;
-var compression = require('compression');
-var bodyParser = require('body-parser');  // parser for post requests
-var watson = require('watson-developer-cloud');
+
+var express = require('express'),
+  extend = require('util')._extend,
+  config = require('config'),
+  vcapServices = require('vcap_services'),
+  compression = require('compression'),
+  bodyParser = require('body-parser'),  // parser for post requests
+  watson = require('watson-developer-cloud');
+
 //The following requires are needed for logging purposes
-var uuid = require('uuid');
-var csv = require('express-csv');
-var vcapServices = require('vcap_services');
-var basicAuth = require('basic-auth-connect');
-var fulfillment = require('./fulfillment');
+var uuid = require('uuid'),
+  csv = require('express-csv'),
+  basicAuth = require('basic-auth-connect'),
+  fulfillment = require('./fulfillment');
+
+// load VCAP_SERVICES from (default).json file
+if(!process.env.VCAP_SERVICES) process.env['VCAP_SERVICES'] = JSON.stringify(config.get('VCAP_SERVICES'));
 
 //The app owner may optionally configure a cloudand db to track user input.
 //This cloudand db is not required, the app will operate without it.
@@ -59,9 +64,11 @@ var conversationConfig = extend({
   version: 'v1'
 }, vcapServices.getCredentials('conversation'));
 var conversation = watson.conversation(conversationConfig);
+//TODO: throw error if conversation creds are not correctly set
 
 //The conversation workspace id
 var workspace_id = process.env.WORKSPACE_ID || null;
+console.log('Using Workspace ID '+workspace_id);
 
 // Endpoint to be call from the client side
 app.post('/api/message', function (req, res) {
@@ -117,15 +124,15 @@ if (cloudantUrl) {
   //If the cloudantUrl has been configured then we will want to set up a nano client
   var nano = require('nano')(cloudantUrl);
   //add a new API which allows us to retrieve the logs (note this is not secure)
-  nano.db.get('car_logs', function (err, body) {
-    if (err) {
-      nano.db.create('car_logs', function (err, body) {
-        logs = nano.db.use('car_logs');
-      });
-    } else {
-      logs = nano.db.use('car_logs');
-    }
-  });
+  // nano.db.get('car_logs', function (err, body) {
+  //   if (err) {
+  //     nano.db.create('car_logs', function (err, body) {
+  //       logs = nano.db.use('car_logs');
+  //     });
+  //   } else {
+  //     logs = nano.db.use('car_logs');
+  //   }
+  // });
 
   //Endpoint which allows deletion of db
   app.post('/clearDb', auth, function (req, res) {

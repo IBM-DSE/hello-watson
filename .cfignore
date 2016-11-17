@@ -1,6 +1,7 @@
-dist/
 node_modules/
+dist/
 .idea/
+temp/
 coverage
 npm-debug.log
-.env
+.env*
