@@ -49,6 +49,7 @@ app.use(compression());
 app.use(bodyParser.json());
 //static folder containing UI
 app.use(express.static(__dirname + "/dist"));
+//TODO: Redirect http to https?
 
 // Create the service wrapper
 var conversationConfig = extend({
@@ -91,7 +92,7 @@ app.post('/api/message', function (req, res) {
   // Send the input to the conversation service
   conversation.message(payload, function (err, data) {
     if (err) {
-      console.error(JSON.stringify(err));
+      console.error('conversation.message error: '+JSON.stringify(err));
       return res.status(err.code || 500).json(err);
     }
     if (logs) {

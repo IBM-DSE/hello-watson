@@ -5,6 +5,6 @@ applications:
   services:
   - SpeechToText
   - TextToSpeech
-  - WatsonConversation
+#  - WatsonConversation
   env:
     NPM_CONFIG_PRODUCTION: false
