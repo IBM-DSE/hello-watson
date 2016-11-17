@@ -15,8 +15,7 @@
  */
 
 'use strict';
-
-require('dotenv').config({silent: true});
+process.env.SUPPRESS_NO_CONFIG_WARNING = true;
 
 var express = require('express'),
   extend = require('util')._extend,
@@ -32,8 +31,11 @@ var uuid = require('uuid'),
   basicAuth = require('basic-auth-connect'),
   fulfillment = require('./fulfillment');
 
-// load VCAP_SERVICES from (default).json file
-if(!process.env.VCAP_SERVICES) process.env['VCAP_SERVICES'] = JSON.stringify(config.get('VCAP_SERVICES'));
+// load from .env file
+require('dotenv').config({silent: true});
+
+// load from (default).json file
+if(config.has('VCAP_SERVICES')) process.env['VCAP_SERVICES'] = JSON.stringify(config.get('VCAP_SERVICES'));
 
 //The app owner may optionally configure a cloudand db to track user input.
 //This cloudand db is not required, the app will operate without it.
@@ -54,6 +56,7 @@ app.use(compression());
 app.use(bodyParser.json());
 //static folder containing UI
 app.use(express.static(__dirname + "/dist"));
+//TODO: Redirect http to https?
 
 // Create the service wrapper
 var conversationConfig = extend({
@@ -98,7 +101,7 @@ app.post('/api/message', function (req, res) {
   // Send the input to the conversation service
   conversation.message(payload, function (err, data) {
     if (err) {
-      console.error(JSON.stringify(err));
+      console.error('conversation.message error: '+JSON.stringify(err));
       return res.status(err.code || 500).json(err);
     }
     if (logs) {
