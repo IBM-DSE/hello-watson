@@ -109,6 +109,7 @@ var TTSModule = (function() {
 
   // Check ref for 'STT' and allow user to use STT
   function allowSTT(payload) {
+    //TODO: radio button option to automatically turn on mic for a question, always, & never
     if (payload.ref === 'STT' || mic_setting === 'auto' && payload.autoMic) { // TODO: describe this in the README
       STTModule.speechToText();
     }

@@ -42,10 +42,10 @@ var STTModule = (function() {
     }
   }
 
-  //TODO: radio button option to automatically turn on mic for a question, always, & never
   function toggle() { // When the microphone button is clicked
     if (recording === false) {
       if (records === 0) { // The first time the mic is clicked - inform user
+        // TODO: make this an overlay
         Api.setWatsonPayload({
           output: {
             text: ['Accept the microphone prompt in your browser. Watson will listen soon.'],
