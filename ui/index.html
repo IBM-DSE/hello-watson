@@ -18,14 +18,17 @@
          limitations under the License.">
     <meta name="description" content="Watson Conversation Service Sample Application">
 
+    <!--Tab Title-->
     <title>Hello Watson</title>
 
     <!-- build:css css/main.min.css -->
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/dropdowns-enhancement.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="css/dropdowns-enhancement.min.css" >
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css" >
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/conversation.css">
+    <link rel="stylesheet" type="text/css" href="css/input-output.css">
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
     <!-- endbuild -->
 
@@ -38,44 +41,53 @@
 
 <div class="box">
     <header>
+
+        <!--Page Title-->
         <div class="centered-content"><h1>Hello, Watson!</h1></div>
 
+        <!--Audio Control Button-->
         <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
 
-        <div id="mic-settings-wrapper" style="position:absolute; top: 1rem; left: 1rem">
-            <div class="btn-group">
-                <button data-toggle="dropdown" data-placeholder="false"
-                        class="btn btn-default dropdown-toggle">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </button>
-                <ul id="mic-setting" class="dropdown-menu">
-                    <li><input type="radio" id="auto" name="NAME" value="auto">
-                        <label for="auto">Auto Mic</label></li>
-                    <li><input type="radio" id="manual" name="NAME" value="manual">
-                        <label for="manual">Manual Mic</label></li>
-                </ul>
-            </div>
-        </div>
+        <!--User input: Microphone Button and Text Box-->
+        <div id="input-wrapper" class="content-wrapper responsive-columns-wrapper">
 
-        <div class="chat-wrapper">
-            <div id="input-wrapper" class="responsive-columns-wrapper">
-
-
-                <div id="input-mic-holder">
-                    <div id="input-mic" class="inactive-mic" onclick="STTModule.toggle()"></div>
+            <!--Micropphone Settings Button and Drop-down-->
+            <div class="input-element" style="width: 50px">
+                <div class="dropdown" style="position: absolute; bottom: 1.25rem">
+                    <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-default">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </a>
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                        <li class="dropdown-submenu">
+                            <a>Auto-Mic: <strong><span id="auto-mic-label" data-label-placement></span></strong></a>
+                            <ul id="mic-settings" class="dropdown-menu">
+                                <li><input type="radio" id="always" name="mic-setting" value="always">
+                                    <label for="always">Always</label></li>
+                                <li><input type="radio" id="prompt" name="mic-setting" value="prompt">
+                                    <label for="prompt">When Prompted</label></li>
+                                <li><input type="radio" id="never" name="mic-setting" value="never">
+                                    <label for="never">Never</label></li>
+                            </ul>
+                        </li>
+                        <!--<li><a>Some other action</a></li>-->
+                    </ul>
                 </div>
+            </div>
 
-
-
+            <div id="input-mic-holder" class="input-element">
+                <div id="input-mic" class="inactive-mic" onclick="STTModule.toggle()"></div>
+            </div>
+            <div id="user-input-wrapper" class="input-element">
                 <label for="user-input" class="input-outline responsive-column">
-                    <input id="user-input" type="text" placeholder="<- Press and speak">
+                    <input id="user-input" type="text" placeholder="<- Press and speak or type here.">
                 </label>
-
             </div>
         </div>
+
     </header>
     <content>
-        <div id="chat-scroll-wrapper" class="chat-wrapper">
+        <!--Chat area-->
+        <div id="chat-scroll-wrapper" class="content-wrapper">
             <div id="chat-flow"></div>
         </div>
     </content>
@@ -85,14 +97,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 <script>
-  var mic_setting = localStorage.getItem("mic_setting") || 'auto';
-  $(function() { $("#mic-setting li input[value='" + mic_setting + "']").prop('checked', true); });
 
-  $('#mic-setting li').on('click', function() {
-    mic_setting = $(this)[0].firstChild.value;
-    localStorage.setItem("mic_setting", mic_setting);
-    console.log(mic_setting);
+  // Get mic_setting from browser localStorage
+  var mic_setting = localStorage.getItem("mic_setting") || 'prompt';
+
+  $(function() {
+    $("#" + mic_setting).prop('checked', true); // set input element corresponding to the initial mic setting to checked
+    $("#auto-mic-label").html($('label[for='+mic_setting+']').html()); // set default label based on initial mic setting
+
+    //    TODO: add tooltips
+    //    $('[data-tooltip="tooltip"]').tooltip();
   });
+
+  // update mic_setting variable on click
+  $('#mic-settings').find('li').on('click', function() {
+    mic_setting = $(this)[0].firstChild.id;
+    localStorage.setItem("mic_setting", mic_setting);
+  });
+
 </script>
 
 <!-- build:js vendor.min.js -->
