@@ -15,7 +15,7 @@
  */
 
 #input-wrapper {
-    padding: 1.25rem;
+    padding: 1.25rem 0;
     background: white;
     position: relative;
     display: table;
@@ -29,61 +29,59 @@
 #input-mic-holder {
     height: 10rem;
     width: 10rem;
-    /*position: relative;*/
 }
 
-#input-mic {
-    /*display: inline-block;*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-    height: 100%;
-    width: 100%;
-    border-radius: 5rem;
-    /*transition: 0.4s;*/
-    /*cursor: pointer;*/
-    background-color: #BCC8C8;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 55%;
+#mic-settings-menu {
+    position: absolute;
+    bottom: 1.25rem;
 }
 
-#input-mic.inactive-mic {
-    background-image: url("../images/mic-off.svg");
+#mic-settings-button {
+    height: 5rem;
+    width: 5rem;
+    padding: 0;
+    background-color: #007fff;
+    color: #ffffff;
 }
 
-#input-mic.active-mic, #input-mic:active {
-    background-image: url("../images/mic-on.svg");
-    background-color: #32D0B6;
-    border: 0.25rem solid #01745E;
+#mic-settings-button:hover {
+    background-color: #0040ff;
 }
 
-/*
-#input-mic.active-mic {
-    animation: mic-pulse 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+#mic-settings-gear {
+    position: absolute;
+    top: auto;
+    left: 2px;
+    bottom: 3px;
 }
 
-@keyframes mic-pulse {
-    0% {
-      border-color: black;
-    }
-    25% {
-      border-color: #8C101C;
-    }
-    50% {
-      border-color: #FF5050;
-    }
-    75% {
-      border-color: #8C101C;
-    }
-    100% {
-      border-color: black;
-    }
+#mic-button {
+    cursor: pointer;
 }
-*/
+
+#mic-image {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 3px gray;
+    display: block;
+}
+
+#mic-image.inactive-mic {
+    background-image: url("../images/microphone_hover.svg");
+    background-color: #007fff;
+}
+
+#mic-image:hover {
+    background-color: #0040ff;
+}
+
+#mic-image.active-mic {
+    background-image: url("../images/microphone_running.svg");
+    background-color: #ffffff;
+}
 
 .input-outline {
     background-color: white;
@@ -91,13 +89,22 @@
     margin-left: 0.25rem;
     text-align: left;
     width: 100%;
-    /*position: relative;*/
     overflow: hidden;
+}
+
+#user-input-wrapper {
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+label[for=user-input] {
+    margin: 0;
 }
 
 #user-input {
     width: 100%;
-    max-width: 80%;
+    /*max-width: 100%;*/
     background: white;
     font-family: "Helvetica Neue for IBM Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
@@ -107,12 +114,8 @@
     border: none;
     outline: none;
     border-bottom: 0.0625rem solid #AEAEAE;
-    padding-left: 0.3125rem;
-    margin-bottom: -0.125rem;
     box-sizing: border-box;
-    position: absolute;
     top: 50%;
-    transform: translate(0%, -50%);
 }
 
 #user-input.underline {
@@ -145,24 +148,35 @@ input#user-input:-moz-placeholder {
     display: none;
 }
 
-#output-audio.audio-on {
+#audio-control-wrapper {
+    width: 7rem;
+    vertical-align: middle;
+}
+
+#audio-button {
+    cursor: pointer;
+}
+
+#speaker-image {
+    height: 7rem;
+    width: inherit;
+    border-radius: 50%;
+    background-color: #24af4c;
+    background-size: 100%;
+}
+
+#speaker-image.audio-on {
     background-image: url("../images/audio-on.svg");
 }
-
-#output-audio.audio-off {
-    background-image: url("../images/audio-off.svg");
+#speaker-image.audio-on:hover {
+    background-color: #1a8038;
 }
 
-#output-audio {
-    position: absolute;
-    z-index: 10;
-    right: 2rem;
-    top: 1rem;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 1.75rem;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 100%;
+#speaker-image.audio-off {
+    background-image: url("../images/audio-off.svg");
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#speaker-image.audio-off:hover {
+    background-color: #C9C9C9;
 }

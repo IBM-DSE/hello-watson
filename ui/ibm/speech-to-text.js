@@ -15,10 +15,9 @@
  */
 /* global WatsonSpeech: true, Conversation: true, Api: true Common: true*/
 
-//TODO: See if anything can be improved from the speech-to-text-demo
 var STTModule = (function() {
   'use strict';
-  var mic = document.getElementById('input-mic');
+  var mic = document.getElementById('mic-image');
   var user_input = document.getElementById('user-input');
   var recording = false;
   var stream;
@@ -71,6 +70,7 @@ var STTModule = (function() {
   }
 
   function micOff() {
+    console.log("Turning off the mic.");
     user_input.disabled = false;
     mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
     recording = false;                          // We aren't recording anymore
@@ -102,6 +102,7 @@ var STTModule = (function() {
                 Conversation.sendMessage();             // Send the message to Watson Conversation
               }
             } else { // If there isn't any data to be handled by the conversation, display a message to the user letting them know
+              // TODO: Keep the mic on until we get a sentence. (merge speech-to-text-demo)
               // Api.setWatsonPayload({output: {text: ['Microphone input cancelled. Please press the button to speak to Watson again'], speech: false}}); // If the user clicked the microphone button again to cancel current input
             }
           })

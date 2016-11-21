@@ -19,7 +19,7 @@
     padding-top: 0.3125rem;
     border-top-left-radius: 0.625rem;
     border-top-right-radius: 0.625rem;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 #chat-flow {
@@ -57,11 +57,11 @@
 }
 
 .watson-message {
-    background: #4178BE;
+    background: #24af4c;
 }
 
 .user-message {
-    background: #00B4A0;
+    background: #007fff;
 }
 
 .user-message::before, .watson-message::after {
@@ -72,13 +72,13 @@
 
 .user-message::before {
     left: -1.65rem;
-    border-right-color: #00B4A0;
+    border-right-color: #007fff;
 }
 
 .watson-message::after {
     right: -1.65rem;
     bottom: 1.5rem;
-    border-left-color: #4178BE;
+    border-left-color: #24af4c;
 }
 
 .user img:not(.msg) {
