@@ -9,13 +9,13 @@
     <g id="Pieces" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="audio-off">
             <g transform="translate(1.000000, 1.000000)">
-                <circle id="Oval-1" fill="#BCC8C8" cx="32" cy="32" r="32"></circle>
+                <circle id="Oval-1" fill="none" cx="32" cy="32" r="32"></circle>
                 <g id="mute-icon" transform="translate(15.000000, 10.000000)" fill="#838E8E">
                     <path d="M23.1999638,0.00011 L10.1499638,13.20011 L-3.625e-05,13.20011 L-3.625e-05,30.80011 L10.1499638,30.80011 L23.1999638,44.00011 L23.1999638,0.00011 Z M1.44996375,29.33381 L8.70032625,29.33381 L8.70032625,14.6667767 L1.44996375,14.6667767 L1.44996375,29.33381 Z" id="Fill-1"></path>
                     <path d="M24.65,17.6 L24.65,26.4 C27.0486625,26.4 29,24.4262333 29,22 C29,19.5737667 27.0486625,17.6 24.65,17.6" id="Fill-2"></path>
                 </g>
                 <g id="Line" stroke-linecap="square">
-                    <use stroke="#BCC8C8" stroke-width="7" xlink:href="#path-1"></use>
+                    <use stroke="none" stroke-width="7" xlink:href="#path-1"></use>
                     <use stroke="#838E8E" stroke-width="3" xlink:href="#path-1"></use>
                 </g>
             </g>

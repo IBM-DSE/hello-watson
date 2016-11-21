@@ -51,7 +51,7 @@ var Conversation = (function() {
   function init() {
     chatSetup();
     initEnterSubmit();
-    setupInputBox();
+    // setupInputBox();
     Api.initConversation(); // Load initial Watson greeting
   }
 

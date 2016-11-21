@@ -20,8 +20,7 @@ html {
 }
 
 body {
-    margin: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: relative;
 }
@@ -43,7 +42,6 @@ body {
 }
 
 .centered-content {
-    /*padding: 40px 15px 15px 15px;*/
     height: 55px;
     text-align: center;
 }

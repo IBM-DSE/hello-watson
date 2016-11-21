@@ -19,8 +19,9 @@
 var TTSModule = (function() {
   'use strict';
   var audio = null; // Initialize audio to null
-  var button = document.getElementById('output-audio');
-  button.value = 'ON'; // TTS is default - not mute
+  var button = document.getElementById('speaker-image');
+  button.value = 'OFF'; // TTS is default - mute
+  var audio_setting = localStorage.getItem("audio_setting") || button.value;
   Common.hide(button); // In case user is using invalid browsers
 
   return {
@@ -31,6 +32,7 @@ var TTSModule = (function() {
   function init() {
     textToSpeech();
     checkBrowsers();
+    checkStoredSetting();
   }
 
   // Create a callback when a new Watson response is received to start speech
@@ -50,16 +52,23 @@ var TTSModule = (function() {
     }
   }
 
+  function checkStoredSetting() {
+    if(audio_setting === 'ON' && button.value === 'OFF')
+      toggle();
+  }
+
   // Toggle TTS/Mute button
   function toggle() {
     if (button.value === 'OFF') {
       button.value = 'ON';
       button.setAttribute('class', 'audio-on');
     } else {
-      audio.pause(); // Pause the current audio if the toggle is turned OFF
+      if (audio !== null && !audio.ended)
+        audio.pause(); // Pause the current audio if the toggle is turned OFF
       button.value = 'OFF';
       button.setAttribute('class', 'audio-off');
     }
+    localStorage.setItem("audio_setting", button.value);
   }
 
   // Stops the audio for an older message and plays audio for current message
@@ -83,6 +92,7 @@ var TTSModule = (function() {
           if (audio !== null && !audio.ended) {
             audio.pause();
           }
+          //TODO: gracefully handle: Failed to load resource: the server responded with a status of 400 (Bad Request)
           audio = WatsonSpeech.TextToSpeech.synthesize({
             text: voice_output, // Output text/response
             voice: 'en-US_MichaelVoice', // Default Watson voice
@@ -107,11 +117,15 @@ var TTSModule = (function() {
     });
   }
 
-  // Check ref for 'STT' and allow user to use STT
+  // Check for conditions to allow user to use STT input
   function allowSTT(payload, voice_output) {
-    //TODO: prevent activation when audio is muted
-    //TODO: radio button option to automatically turn on mic for a question, always, & never
-    if (mic_setting === 'always' || payload.ref === 'STT' || mic_setting === 'prompt' && (payload.autoMic || voice_output[voice_output.length-1]==='?')) { // TODO: describe this in the README
+
+    if (payload.ref === 'STT' ||        // IF user toggled microhpone button, always activate STT
+        button.value === 'ON' &&        // IF audio control button is switched ON, then check:
+        (mic_setting === 'always' ||      // if mic_setting is 'always', activate STT
+                                          // if mic_setting is 'prompt', check for autoMic setting or question mark
+         mic_setting === 'prompt' && (payload.autoMic || voice_output[voice_output.length-1]==='?'))) {
+
       STTModule.speechToText();
     }
   }
