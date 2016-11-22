@@ -74,11 +74,8 @@ var TTSModule = (function() {
 
   // Stops the audio for an older message and plays audio for current message
   function playCurrentAudio(output) {
-    // console.log("Playing Audio for:");
-    // console.log(output);
     fetch('/api/text-to-speech/token') // Retrieve TTS token
       .then(function(response) {
-        // console.log(response);
         return response.text();
       }).then(function(token) {
       if (button.value === 'ON' && ( typeof output.speech == 'undefined' || output.speech )) {
@@ -87,6 +84,7 @@ var TTSModule = (function() {
         if (output.text) { // If payload.text is defined
 
           // prefer the output speech, otherwise read the output text
+          //TODO: handle multiple strings, some with speech, some with text.
           var voice_output = output.speech ? output.speech : output.text;
 
           // join array of strings into one string of sentences for correct voice output
@@ -97,7 +95,6 @@ var TTSModule = (function() {
             audio.pause();
           }
           //TODO: gracefully handle: Failed to load resource: the server responded with a status of 400 (Bad Request)
-          // console.log("Speaking '"+voice_output+"'");
           audio = WatsonSpeech.TextToSpeech.synthesize({
             text: voice_output, // Output text/response
             voice: 'en-US_MichaelVoice', // Default Watson voice

@@ -52,11 +52,14 @@ var logs = null;
 
 var app = express();
 
+// Redirect http to https if we're in Bluemix
+if(process.env.VCAP_APP_PORT)
+  app.use(requireHTTPS);
+
 app.use(compression());
 app.use(bodyParser.json());
 //static folder containing UI
 app.use(express.static(__dirname + "/dist"));
-//TODO: Redirect http to https?
 
 // Create the service wrapper
 var conversationConfig = extend({
@@ -116,6 +119,8 @@ app.post('/api/message', function (req, res) {
   });
 });
 
+app.use('/api/speech-to-text/', require('./speech/stt-token.js'));
+app.use('/api/text-to-speech/', require('./speech/tts-token.js'));
 
 if (cloudantUrl) {
   //If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
@@ -202,7 +207,11 @@ if (cloudantUrl) {
   });
 }
 
-app.use('/api/speech-to-text/', require('./speech/stt-token.js'));
-app.use('/api/text-to-speech/', require('./speech/tts-token.js'));
+function requireHTTPS(req, res, next) {
+  if (req.headers && req.headers.$wssp === "80") {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
 
 module.exports = app;

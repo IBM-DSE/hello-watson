@@ -21,7 +21,7 @@ var STTModule = (function() {
   var user_input = document.getElementById('user-input');
   var recording = false;
   var stream;
-  var records = localStorage.getItem("mic_records") || 0;
+  // var records = localStorage.getItem("mic_records") || 0;
 
   return {
     toggle: toggle,
@@ -43,20 +43,20 @@ var STTModule = (function() {
 
   function toggle() { // When the microphone button is clicked
     if (recording === false) {
-      if (records === 0) { // The first time the mic is clicked - inform user
-        // TODO: make this an overlay
-        Api.setWatsonPayload({
-          output: {
-            text: ['Accept the microphone prompt in your browser. Watson will listen soon.'],
-            speech: false,
-            ref: 'STT'
-          }
-        }); // Dialog box output to let the user know we're recording
-        records++;
-        localStorage.setItem("mic_records", records);
-      } else {
-        Api.setWatsonPayload({output: {ref: 'STT'}}); // Let the user record right away
-      }
+      // if (records === 0) { // The first time the mic is clicked - inform user
+      //   // TODO: make this an overlay
+      //   Api.setWatsonPayload({
+      //     output: {
+      //       text: ['Accept the microphone prompt in your browser. Watson will listen soon.'],
+      //       speech: false,
+      //       ref: 'STT'
+      //     }
+      //   }); // Dialog box output to let the user know we're recording
+      //   records++;
+      //   localStorage.setItem("mic_records", records);
+      // } else {
+      // }
+      Api.setWatsonPayload({output: {ref: 'STT'}}); // Let the user record right away
     } else {
       recording = false;
       stream.stop();
