@@ -70,7 +70,6 @@ var STTModule = (function() {
   }
 
   function micOff() {
-    console.log("Turning off the mic.");
     user_input.disabled = false;
     mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
     recording = false;                          // We aren't recording anymore
@@ -107,9 +106,10 @@ var STTModule = (function() {
             }
           })
           .catch(function(err) { // Catch any errors made during the promise
+            console.error(err);
             if (err.message.includes('No speech detected')) // This error will always occur when Speech-To-Text times out, so don't log it (but log everything else)
-              console.log('Speak!');  // TODO: make this an overlay: Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Press the button to speak to Watson again.'], speech: false}});
-            else console.error(err);
+              console.log('Timeout!');  // TODO: make this an overlay: Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Press the button to speak to Watson again.'], speech: false}});
+            // else console.error(err);
             micOff();
           });
       })

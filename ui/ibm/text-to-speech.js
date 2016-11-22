@@ -20,7 +20,7 @@ var TTSModule = (function() {
   'use strict';
   var audio = null; // Initialize audio to null
   var button = document.getElementById('speaker-image');
-  button.value = 'OFF'; // TTS is default - mute
+  button.value = button.getAttribute('value');
   var audio_setting = localStorage.getItem("audio_setting") || button.value;
   Common.hide(button); // In case user is using invalid browsers
 
@@ -68,13 +68,17 @@ var TTSModule = (function() {
       button.value = 'OFF';
       button.setAttribute('class', 'audio-off');
     }
+    button.setAttribute('value', button.value);
     localStorage.setItem("audio_setting", button.value);
   }
 
   // Stops the audio for an older message and plays audio for current message
   function playCurrentAudio(output) {
+    // console.log("Playing Audio for:");
+    // console.log(output);
     fetch('/api/text-to-speech/token') // Retrieve TTS token
       .then(function(response) {
+        // console.log(response);
         return response.text();
       }).then(function(token) {
       if (button.value === 'ON' && ( typeof output.speech == 'undefined' || output.speech )) {
@@ -93,6 +97,7 @@ var TTSModule = (function() {
             audio.pause();
           }
           //TODO: gracefully handle: Failed to load resource: the server responded with a status of 400 (Bad Request)
+          // console.log("Speaking '"+voice_output+"'");
           audio = WatsonSpeech.TextToSpeech.synthesize({
             text: voice_output, // Output text/response
             voice: 'en-US_MichaelVoice', // Default Watson voice
@@ -109,10 +114,10 @@ var TTSModule = (function() {
             audio.pause();
           }
           // When payload.text is undefined
-          allowSTT(output, voice_output); // Check if user wants to use STT
+          allowSTT(output); // Check if user wants to use STT
         }
       } else { // When TTS is muted
-        allowSTT(output, voice_output); // Check if user wants to use STT
+        allowSTT(output); // Check if user wants to use STT
       }
     });
   }
@@ -124,7 +129,7 @@ var TTSModule = (function() {
         button.value === 'ON' &&        // IF audio control button is switched ON, then check:
         (mic_setting === 'always' ||      // if mic_setting is 'always', activate STT
                                           // if mic_setting is 'prompt', check for autoMic setting or question mark
-         mic_setting === 'prompt' && (payload.autoMic || voice_output[voice_output.length-1]==='?'))) {
+         mic_setting === 'prompt' && (payload.autoMic || voice_output && voice_output[voice_output.length-1]==='?'))) {
 
       STTModule.speechToText();
     }
