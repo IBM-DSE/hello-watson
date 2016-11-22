@@ -20,7 +20,7 @@ var TTSModule = (function() {
   'use strict';
   var audio = null; // Initialize audio to null
   var button = document.getElementById('speaker-image');
-  button.value = 'OFF'; // TTS is default - mute
+  button.value = button.getAttribute('value');
   var audio_setting = localStorage.getItem("audio_setting") || button.value;
   Common.hide(button); // In case user is using invalid browsers
 
@@ -69,6 +69,7 @@ var TTSModule = (function() {
       button.setAttribute('class', 'audio-off');
     }
     localStorage.setItem("audio_setting", button.value);
+    button.setAttribute('value', button.value);
   }
 
   // Stops the audio for an older message and plays audio for current message
