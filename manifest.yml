@@ -1,6 +1,6 @@
 ---
 applications:
-- name: Watson-Panasonic Demo
+- name: Cognitive Digital Mirror
   command: npm start
   services:
   - SpeechToText
