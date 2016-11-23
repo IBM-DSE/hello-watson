@@ -17,6 +17,7 @@
 'use strict';
 process.env.SUPPRESS_NO_CONFIG_WARNING = true;
 
+// library requires
 var express = require('express'),
   extend = require('util')._extend,
   config = require('config'),
@@ -28,8 +29,11 @@ var express = require('express'),
 //The following requires are needed for logging purposes
 var uuid = require('uuid'),
   csv = require('express-csv'),
-  basicAuth = require('basic-auth-connect'),
-  fulfillment = require('./fulfillment');
+  basicAuth = require('basic-auth-connect');
+
+// local module requires
+var fulfillment = require('./fulfillment'),
+  context_manager = require('./pipeline/context_manager');
 
 // load from .env file
 require('dotenv').config({silent: true});
@@ -52,11 +56,14 @@ var logs = null;
 
 var app = express();
 
+// Redirect http to https if we're in Bluemix
+if(process.env.VCAP_APP_PORT)
+  app.use(requireHTTPS);
+
 app.use(compression());
 app.use(bodyParser.json());
 //static folder containing UI
 app.use(express.static(__dirname + "/dist"));
-//TODO: Redirect http to https?
 
 // Create the service wrapper
 var conversationConfig = extend({
@@ -75,13 +82,10 @@ console.log('Using Workspace ID '+workspace_id);
 // Endpoint to be call from the client side
 app.post('/api/message', function (req, res) {
   if (!workspace_id) {
-    //If the workspace id is not specified notify the user
+    console.error('WORKSPACE_ID is missing');
     return res.json({
       'output': {
-        'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' +
-        '<a href="https://github.com/watson-developer-cloud/car-dashboard">README</a> documentation on how to set this variable. <br>' +
-        'Once a workspace has been defined the intents may be imported from ' +
-        '<a href="https://github.com/watson-developer-cloud/car-dashboard/blob/master/training/car_workspace.json">here</a> in order to get a working application.'
+        'text': 'Oops! It doesn\'t look like I have been configured correctly...'
       }
     });
   }
@@ -100,22 +104,30 @@ app.post('/api/message', function (req, res) {
     }
   }
 
-  // Send the input to the conversation service
-  conversation.message(payload, function (err, data) {
-    if (err) {
-      console.error('conversation.message error: '+JSON.stringify(err));
-      return res.status(err.code || 500).json(err);
-    }
-    if (logs) {
-      //If the logs db is set, then we want to record all input and responses
-      var id = uuid.v4();
-      logs.insert({'_id': id, 'request': payload, 'response': data, 'time': new Date()}, function (err, data) {
-      });
-    }
-    fulfillment.handle_message(res, data);
+  // Update the context before sending payload to the Watson Conversation service
+  context_manager.update_context(payload, function(new_payload) {
+
+    // Send the input to the conversation service
+    conversation.message(new_payload, function (err, data) {
+      if (err) {
+        console.error('conversation.message error: '+JSON.stringify(err));
+        return res.status(err.code || 500).json(err);
+      }
+      if (logs) {
+        //If the logs db is set, then we want to record all input and responses
+        var id = uuid.v4();
+        logs.insert({'_id': id, 'request': new_payload, 'response': data, 'time': new Date()}, function (err, data) {
+        });
+      }
+      fulfillment.handle_message(res, data);
+    });
+
   });
+
 });
 
+app.use('/api/speech-to-text/', require('./speech/stt-token.js'));
+app.use('/api/text-to-speech/', require('./speech/tts-token.js'));
 
 if (cloudantUrl) {
   //If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
@@ -202,7 +214,11 @@ if (cloudantUrl) {
   });
 }
 
-app.use('/api/speech-to-text/', require('./speech/stt-token.js'));
-app.use('/api/text-to-speech/', require('./speech/tts-token.js'));
+function requireHTTPS(req, res, next) {
+  if (req.headers && req.headers.$wssp === "80") {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
 
 module.exports = app;
