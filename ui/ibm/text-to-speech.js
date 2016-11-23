@@ -68,8 +68,8 @@ var TTSModule = (function() {
       button.value = 'OFF';
       button.setAttribute('class', 'audio-off');
     }
-    localStorage.setItem("audio_setting", button.value);
     button.setAttribute('value', button.value);
+    localStorage.setItem("audio_setting", button.value);
   }
 
   // Stops the audio for an older message and plays audio for current message
@@ -84,6 +84,7 @@ var TTSModule = (function() {
         if (output.text) { // If payload.text is defined
 
           // prefer the output speech, otherwise read the output text
+          //TODO: handle multiple strings, some with speech, some with text.
           var voice_output = output.speech ? output.speech : output.text;
 
           // join array of strings into one string of sentences for correct voice output
@@ -110,10 +111,10 @@ var TTSModule = (function() {
             audio.pause();
           }
           // When payload.text is undefined
-          allowSTT(output, voice_output); // Check if user wants to use STT
+          allowSTT(output); // Check if user wants to use STT
         }
       } else { // When TTS is muted
-        allowSTT(output, voice_output); // Check if user wants to use STT
+        allowSTT(output); // Check if user wants to use STT
       }
     });
   }
@@ -125,7 +126,7 @@ var TTSModule = (function() {
         button.value === 'ON' &&        // IF audio control button is switched ON, then check:
         (mic_setting === 'always' ||      // if mic_setting is 'always', activate STT
                                           // if mic_setting is 'prompt', check for autoMic setting or question mark
-         mic_setting === 'prompt' && (payload.autoMic || voice_output[voice_output.length-1]==='?'))) {
+         mic_setting === 'prompt' && (payload.autoMic || voice_output && voice_output[voice_output.length-1]==='?'))) {
 
       STTModule.speechToText();
     }
