@@ -48,13 +48,9 @@
         <!--User input-->
         <div id="input-wrapper" class="content-wrapper responsive-columns-wrapper">
 
-            <!--Micropphone Settings Button and Drop-down-->
-            <!--style="width: 40px"-->
-            <!--<div id="mic-settings-holder" class="input-element"></div>-->
-
-            <!--Microphone Button-->
             <div id="input-mic-holder" class="input-element">
 
+                <!--Micropphone Settings Button and Drop-down-->
                 <div id="mic-settings-menu" class="dropdown">
                     <a id="mic-settings-button" role="button" data-toggle="dropdown" class="btn btn-default">
                         <span id="mic-settings-gear" class="glyphicon glyphicon-cog"></span>
@@ -72,10 +68,12 @@
                                     <label for="never">Never</label></li>
                             </ul>
                         </li>
+                        <!--TODO: add "okay, Watson" invocation-->
                         <!--<li><a>Some other action</a></li>-->
                     </ul>
                 </div>
 
+                <!--Microphone Button-->
                 <a id="mic-button"><div id="mic-image" class="inactive-mic" onclick="STTModule.toggle()"></div></a>
             </div>
 

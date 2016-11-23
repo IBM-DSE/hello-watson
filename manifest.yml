@@ -1,6 +1,6 @@
 ---
 applications:
-- name: Watson-Panasonic Demo
+- name: Digital Concierge
   command: npm start
   services:
   - SpeechToText
