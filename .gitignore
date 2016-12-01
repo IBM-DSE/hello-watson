@@ -5,3 +5,4 @@ temp/
 npm-debug.log
 .env
 config/default.json
+manifest.yml
