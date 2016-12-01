@@ -1,10 +1,11 @@
 ---
 applications:
-- name: Cognitive Digital Mirror
+- name: Hello Watson
+  memory: 128m
   command: npm start
   services:
   - SpeechToText
   - TextToSpeech
-#  - WatsonConversation
+  - WatsonConversation
   env:
     NPM_CONFIG_PRODUCTION: false
