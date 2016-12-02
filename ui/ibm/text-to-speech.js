@@ -53,7 +53,7 @@ var TTSModule = (function() {
   }
 
   function checkStoredSetting() {
-    if(audio_setting === 'ON' && button.value === 'OFF')
+    if(audio_setting !== button.value)
       toggle();
   }
 
