@@ -23,7 +23,6 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
-    background: rgba(0, 0, 0, 1);
 }
 
 .box {
@@ -43,7 +42,6 @@ body {
 }
 
 .centered-content {
-    height: 55px;
     text-align: center;
 }
 
@@ -122,4 +120,10 @@ body {
     100% {
         fill: green;
     }
+}
+
+header h1 {
+    color:#325c80;
+    font-size: 4.209em;
+    font-weight: 700;
 }

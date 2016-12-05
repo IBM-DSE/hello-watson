@@ -19,7 +19,7 @@
     padding-top: 0.3125rem;
     border-top-left-radius: 0.625rem;
     border-top-right-radius: 0.625rem;
-    background: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 #chat-flow {

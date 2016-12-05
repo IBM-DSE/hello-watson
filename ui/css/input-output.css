@@ -16,7 +16,6 @@
 
 #input-wrapper {
     padding: 1.25rem 0;
-    background: rgba(0, 0, 0, 1);
     position: relative;
     display: table;
 }
@@ -103,10 +102,9 @@ label[for=user-input] {
 
 #user-input {
     width: 100%;
-    background: rgba(0, 0, 0, 1);
     font-family: "Helvetica Neue for IBM Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    color: #EFEFEF;
+
     letter-spacing: 0.01875rem;
     line-height: 1.625rem;
     border: none;
@@ -171,8 +169,7 @@ input#user-input:-moz-placeholder {
 }
 
 #speaker-image.audio-off {
-    background-image: url("../images/audio-off.svg");
-    background-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1) url("../images/audio-off.svg");
 }
 
 #speaker-image.audio-off:hover {

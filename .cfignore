@@ -5,5 +5,7 @@ temp/
 npm-debug.log
 .env*
 config/
+README.md
 readme_images/
+CONTRIBUTING.MD
 training/

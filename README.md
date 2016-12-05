@@ -26,7 +26,7 @@ The app interface is designed to interface with Watson Conversation. The interfa
 # Getting Started using Bluemix
 </a>
 
-![](readme_images/Deploy on Bluemix - simple app.png)
+![](readme_images/DeployOnBluemix-simpleApp.png)
 
 ## Before you begin
 1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
@@ -35,12 +35,12 @@ The app interface is designed to interface with Watson Conversation. The interfa
    * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
 
 ## Deploy the App
 1 Click this button to Deploy to Bluemix.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/dtom90/hello-watson)
 
 2 Log in with an existing Bluemix account or sign up.
 
@@ -70,9 +70,9 @@ To build the application:
 
 1 Download and install the [Cloudfoundry CLI](https://github.com/cloudfoundry/cli) tool.
 
-2 Git clone the project `https://github.com/watson-developer-cloud/car-dashboard`
+2 Git clone the project `https://github.com/dtom90/hello-watson`
 
-3 Navigate to the `car-dashboard` folder
+3 Navigate to the `hello-watson` folder
 
 4 Connect to Bluemix in the command-line tool:
 
@@ -172,7 +172,7 @@ _Note: If you are interested in deploying you local application or the changes y
 
 3 Return to the **Manage** menu item and select **Launch Tooling**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your Bluemix credentials.
 
-4 Download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/car_workspace.json) that contains the Workspace contents.
+4 Download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/HelloWatson-workspace.json) that contains the Workspace contents.
 
 5 Select **Import**. Browse to (or drag and drop) the JSON file that you downloaded in Step 4. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
 

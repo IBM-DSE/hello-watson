@@ -1,0 +1,6 @@
+body, #input-wrapper, #user-input, #chat-scroll-wrapper {
+    background: rgba(0, 0, 0, 1);
+}
+#user-input {
+    color: #EFEFEF;
+}
