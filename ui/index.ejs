@@ -40,6 +40,7 @@
 <body>
 
 <div class="box">
+
     <header>
 
         <!--Page Title-->
@@ -51,6 +52,7 @@
         <!--User input-->
         <div id="input-wrapper" class="content-wrapper responsive-columns-wrapper">
 
+            <% if(VOICE_INT) { %>
             <div id="input-mic-holder" class="input-element">
 
                 <!--Micropphone Settings Button and Drop-down-->
@@ -61,7 +63,7 @@
                     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                         <li class="dropdown-submenu">
                             <a role="button">Auto-Mic: <strong>
-                                <span id="auto-mic-label" data-label-placement></span></strong></a>
+                                    <span id="auto-mic-label" data-label-placement></span></strong></a>
                             <ul id="mic-settings" class="dropdown-menu">
                                 <li><input type="radio" id="always" name="mic-setting" value="always">
                                     <label for="always">Always</label></li>
@@ -79,28 +81,35 @@
                 <!--Microphone Button-->
                 <a id="mic-button"><div id="mic-image" class="inactive-mic" onclick="STTModule.toggle()"></div></a>
             </div>
+            <% } %>
 
             <!--Text Input Field-->
             <div id="user-input-wrapper" class="input-element">
                 <label for="user-input" class="input-outline responsive-column">
-                    <input id="user-input" type="text" placeholder="<- Press and speak or type here.">
+                    <% var placeholder = VOICE_INT ? "<- Press and speak or type here." : "Type here" %>
+                    <input id="user-input" type="text" placeholder="<%=placeholder%>" >
                 </label>
             </div>
 
+            <% if(VOICE_INT) { %>
             <!--Audio Control Button-->
             <div id="audio-control-wrapper" class="input-element">
                 <a id="audio-button">
                     <div id="speaker-image" class="audio-off" onclick="TTSModule.toggle()" value="OFF"></div></a>
             </div>
+            <% } %>
+
         </div>
 
     </header>
+
     <content>
         <!--Chat area-->
         <div id="chat-scroll-wrapper" class="content-wrapper">
             <div id="chat-flow"></div>
         </div>
     </content>
+
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -134,9 +143,11 @@
 <script src="js/conversation.js"></script>
 <script src="js/global.js"></script>
 <!-- endbuild -->
+<% if(VOICE_INT) { %>
 <script src="ibm/watson-speech.min.js"></script>
 <script src="ibm/speech-to-text.js"></script>
 <script src="ibm/text-to-speech.js"></script>
+<% } %>
 
 </body>
 

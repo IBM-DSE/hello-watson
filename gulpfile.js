@@ -42,6 +42,9 @@
     }
   }
 
+  // Set voice interface
+  var VOICE_INT = process.env.VOICE_INT ? process.env.VOICE_INT==='true' : true;
+
   gulp.task('build-ibm', function() {
     return gulp.src(appDev + 'ibm/*.js')
       .pipe(gulp.dest(appProd + 'ibm'));
@@ -63,7 +66,7 @@
   gulp.task('build-html', ['build-img', 'build-css', 'build-ibm'], function() {
     var assets = $.useref({'searchPath': ['ui/**/*.*', 'node_modules']});
     return gulp.src(appDev + 'index.ejs')
-      .pipe(ejs({APP_NAME: APP_NAME}, {ext: '.html'}))
+      .pipe(ejs({APP_NAME: APP_NAME, VOICE_INT: VOICE_INT}, {ext: '.html'}))
       .pipe(assets) //node_modules dir is in the current dir, search there for dependencies!
       .pipe($.sourcemaps.init({'identityMap': true, 'debug': true}))
       .pipe($.useref())
@@ -91,7 +94,7 @@
   gulp.task('watch', ['build-html'], function() {
     gulp.watch(appDev + '**/*.js', ['build-html']);
     gulp.watch(appDev + 'css/*.css', ['build-html']);
-    gulp.watch(appDev + '**/*.html', ['build-html']);
+    gulp.watch(appDev + '**/*.ejs', ['build-html']);
     gulp.watch(appDev + 'images/**/*', ['build-html']);
   });
 
