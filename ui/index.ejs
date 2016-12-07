@@ -46,7 +46,7 @@
         <!--Page Title-->
         <div class="centered-content">
             <h1><%= APP_NAME %></h1>
-            <h3>Your personal cognitive assistant</h3>
+            <%if(DESCRIPTION){%><h3><%=DESCRIPTION%></h3><%}%>
         </div>
 
         <!--User input-->

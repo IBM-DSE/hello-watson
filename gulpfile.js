@@ -42,6 +42,8 @@
     }
   }
 
+  var DESCRIPTION = process.env.DESCRIPTION;
+
   // Set voice interface
   var VOICE_INT = process.env.VOICE_INT ? process.env.VOICE_INT==='true' : true;
 
@@ -66,7 +68,11 @@
   gulp.task('build-html', ['build-img', 'build-css', 'build-ibm'], function() {
     var assets = $.useref({'searchPath': ['ui/**/*.*', 'node_modules']});
     return gulp.src(appDev + 'index.ejs')
-      .pipe(ejs({APP_NAME: APP_NAME, VOICE_INT: VOICE_INT}, {ext: '.html'}))
+      .pipe(ejs({
+        APP_NAME: APP_NAME,
+        DESCRIPTION: DESCRIPTION,
+        VOICE_INT: VOICE_INT,
+      }, {ext: '.html'}))
       .pipe(assets) //node_modules dir is in the current dir, search there for dependencies!
       .pipe($.sourcemaps.init({'identityMap': true, 'debug': true}))
       .pipe($.useref())
