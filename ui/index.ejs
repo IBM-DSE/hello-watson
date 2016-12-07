@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="css/input-output.css">
     <link rel="stylesheet" type="text/css" href="css/chat.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
+    <%if(DARK){%><link rel="stylesheet" type="text/css" href="css/dark_background.css"><%}%>
     <!-- endbuild -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,8 +46,8 @@
 
         <!--Page Title-->
         <div class="centered-content">
-            <h1><%= APP_NAME %></h1>
-            <%if(DESCRIPTION){%><h3><%=DESCRIPTION%></h3><%}%>
+            <%if(TITLE){%><h1><%= APP_NAME %></h1><%}%>
+            <%if(DESCRIPTION){%><h3><%= DESCRIPTION %></h3><%}%>
         </div>
 
         <!--User input-->

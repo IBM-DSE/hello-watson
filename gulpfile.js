@@ -42,10 +42,16 @@
     }
   }
 
+  // Set darkbackground (false by default)
+  var TITLE = process.env.TITLE ? process.env.TITLE==='true' : true;
+
   var DESCRIPTION = process.env.DESCRIPTION;
 
-  // Set voice interface
+  // Set voice interface (true by default)
   var VOICE_INT = process.env.VOICE_INT ? process.env.VOICE_INT==='true' : true;
+
+  // Set darkbackground (false by default)
+  var DARK = process.env.DARK ? process.env.DARK==='true' : false;
 
   gulp.task('build-ibm', function() {
     return gulp.src(appDev + 'ibm/*.js')
@@ -70,8 +76,10 @@
     return gulp.src(appDev + 'index.ejs')
       .pipe(ejs({
         APP_NAME: APP_NAME,
+        TITLE: TITLE,
         DESCRIPTION: DESCRIPTION,
         VOICE_INT: VOICE_INT,
+        DARK: DARK
       }, {ext: '.html'}))
       .pipe(assets) //node_modules dir is in the current dir, search there for dependencies!
       .pipe($.sourcemaps.init({'identityMap': true, 'debug': true}))
