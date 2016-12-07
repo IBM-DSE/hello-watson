@@ -50,10 +50,10 @@
             <%if(DESCRIPTION){%><h3><%= DESCRIPTION %></h3><%}%>
         </div>
 
+        <% if(VOICE_INT) { %>
         <!--User input-->
         <div id="input-wrapper" class="content-wrapper responsive-columns-wrapper">
 
-            <% if(VOICE_INT) { %>
             <div id="input-mic-holder" class="input-element">
 
                 <!--Micropphone Settings Button and Drop-down-->
@@ -82,7 +82,6 @@
                 <!--Microphone Button-->
                 <a id="mic-button"><div id="mic-image" class="inactive-mic" onclick="STTModule.toggle()"></div></a>
             </div>
-            <% } %>
 
             <!--Text Input Field-->
             <div id="user-input-wrapper" class="input-element">
@@ -92,24 +91,40 @@
                 </label>
             </div>
 
-            <% if(VOICE_INT) { %>
             <!--Audio Control Button-->
             <div id="audio-control-wrapper" class="input-element">
                 <a id="audio-button">
                     <div id="speaker-image" class="audio-off" onclick="TTSModule.toggle()" value="OFF"></div></a>
             </div>
-            <% } %>
 
         </div>
+        <% } %>
 
     </header>
 
     <content>
-        <!--Chat area-->
-        <div id="chat-scroll-wrapper" class="content-wrapper">
-            <div id="chat-flow"></div>
+
+        <div class="content-wrapper">
+            <!--Chat area-->
+            <div id="chat-scroll-wrapper">
+                <div id="chat-flow"></div>
+            </div>
         </div>
+
     </content>
+
+    <footer>
+        <% if(!VOICE_INT) { %>
+        <!--Text Input Field-->
+        <div class="content-wrapper">
+            <div id="bottom-textbox">
+                <label for="user-input" class="input-outline responsive-column">
+                    <input id="user-input" type="text" placeholder="Type a message..." >
+                </label>
+            </div>
+        </div>
+        <% } %>
+    </footer>
 
 </div>
 
