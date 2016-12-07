@@ -80,21 +80,24 @@
                 </div>
 
                 <!--Microphone Button-->
-                <a id="mic-button"><div id="mic-image" class="inactive-mic" onclick="STTModule.toggle()"></div></a>
+                <a id="mic-button">
+                    <div id="mic-image" class="inactive-mic" onclick="STTModule.toggle()"></div>
+                </a>
             </div>
 
             <!--Text Input Field-->
             <div id="user-input-wrapper" class="input-element">
                 <label for="user-input" class="input-outline responsive-column">
                     <% var placeholder = VOICE_INT ? "<- Press and speak or type here." : "Type here" %>
-                    <input id="user-input" type="text" placeholder="<%=placeholder%>" >
+                    <input id="user-input" type="text" placeholder="<%= placeholder %>">
                 </label>
             </div>
 
             <!--Audio Control Button-->
             <div id="audio-control-wrapper" class="input-element">
                 <a id="audio-button">
-                    <div id="speaker-image" class="audio-off" onclick="TTSModule.toggle()" value="OFF"></div></a>
+                    <div id="speaker-image" class="audio-off" onclick="TTSModule.toggle()" value="OFF"></div>
+                </a>
             </div>
 
         </div>
@@ -103,28 +106,24 @@
     </header>
 
     <content>
-
-        <div class="content-wrapper">
-            <!--Chat area-->
-            <div id="chat-scroll-wrapper">
-                <div id="chat-flow"></div>
-            </div>
+        <!--Chat area-->
+        <div id="chat-scroll-wrapper" class="content-wrapper">
+            <div id="chat-flow"></div>
         </div>
-
     </content>
 
+    <% if(!VOICE_INT) { %>
     <footer>
-        <% if(!VOICE_INT) { %>
         <!--Text Input Field-->
         <div class="content-wrapper">
             <div id="bottom-textbox">
                 <label for="user-input" class="input-outline responsive-column">
-                    <input id="user-input" type="text" placeholder="Type a message..." >
+                    <input id="user-input" type="text" placeholder="Type a message...">
                 </label>
             </div>
         </div>
-        <% } %>
     </footer>
+    <% } %>
 
 </div>
 

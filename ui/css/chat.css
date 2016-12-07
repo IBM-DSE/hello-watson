@@ -20,13 +20,12 @@
     border-top-left-radius: 0.625rem;
     border-top-right-radius: 0.625rem;
     background: rgba(0, 0, 0, 0.1);
-    height: 100%;
 }
 
 #chat-flow {
     overflow: hidden;
     position: relative;
-
+    height: 100%;
 }
 
 #chat-flow:hover {
