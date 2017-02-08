@@ -8,4 +8,4 @@ applications:
   - TextToSpeech
   - WatsonConversation
   env:
-    NPM_CONFIG_PRODUCTION: false
+    WORKSPACE_ID: <CONVERSATION_WORKSPACE_ID>
