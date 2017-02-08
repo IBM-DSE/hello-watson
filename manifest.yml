@@ -8,5 +8,4 @@ applications:
   - TextToSpeech
   - WatsonConversation
   env:
-    DESCRIPTION: "Your Bot Description"
-    WORKSPACE_ID: <CONVERSATION_WORKSPACE_ID>
+    DESCRIPTION: "Your Personal Cognitive Assistant"

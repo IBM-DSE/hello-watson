@@ -28,9 +28,7 @@
     "uuid": "2.0.2",
     "vcap_services": "^0.2.0",
     "watson-developer-cloud": "^2.8.1",
-    "watson-speech": "^0.19.1"
-  },
-  "devDependencies": {
+    "watson-speech": "^0.19.1",
     "babel-eslint": "^6.0.4",
     "eslint": "^2.8.0",
     "eslint-config-airbnb-es5": "^1.0.9",
