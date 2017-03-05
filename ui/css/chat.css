@@ -81,22 +81,24 @@
     border-left-color: #24af4c;
 }
 
-.user img:not(.msg) {
-    height: 5.2rem;
+.message-icon {
     position: absolute;
+}
+
+.user-icon {
+    height: 5.2rem;
     left: -5.2rem;
     top: 0.1rem;
 }
 
-.watson img:not(.msg) {
+.watson-icon {
     height: 4.5rem;
-    position: absolute;
     right: -5.2rem;
     bottom: 0.2rem;
 }
 
-.watson img.msg {
-    height: 50px;
+img {
+    max-width: 400px;
 }
 
 .watson .pre-bar::before {

@@ -201,16 +201,10 @@ var Conversation = (function() {
 
       var chatBoxElement = document.getElementById(ids.chatFlow);
 
-      //TODO: Improve image displaying standard
+      //TODO: updateChat after images have been loaded
       if(Array.isArray(text)){
         for(var i in text){
-          var img_url;
-          if(newPayload.output){
-            if(newPayload.output.image && i == text.length-1){
-              img_url = newPayload.output.image;
-            }
-          }
-          var messageDiv = buildMessageDomElement(text[i], isUser, img_url);
+          var messageDiv = buildMessageDomElement(text[i], isUser);
           chatBoxElement.appendChild(messageDiv);
         }
       } else {
@@ -232,31 +226,30 @@ var Conversation = (function() {
   }
 
   // Builds the message DOM element (using auxiliary function Common.buildDomElement)
-  function buildMessageDomElement(text, isUser, image_url) {
+  function buildMessageDomElement(text, isUser) {
     // var dataObj = isUser ? newPayload.input : newPayload.output;
 
     var content = [];
-    if(isUser) content += '<img src=\'/images/head.svg\' />';
+    if(isUser) content += '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />';
     content += {
       'tagName': 'p',
       'html': text
     };
-    if(!isUser) content += '<img src=\'/images/watson-logo-round.png\' />';
-
-    var img_msg = image_url ? '<img src='+image_url+' class=\'msg\'/>' + text : text;
+    if(!isUser) content += '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />';
 
     var messageJson = {
       // <div class='user / watson'>
       'tagName': 'div',
       'classNames': ['message-wrapper', (isUser ? authorTypes.user : authorTypes.watson)],
       'children': [{
-        // <p class='user-message / watson-message'>
+        // <div class='user-message / watson-message'>
         'tagName': 'div',
         'classNames': (isUser
           ? [authorTypes.user + '-message']
           : [authorTypes.watson + '-message']),//, classes.preBar
         // 'children': content
-        'html': (isUser ? '<img src=\'/images/head.svg\' />' + text : img_msg + '<img src=\'/images/watson-logo-round.png\' />')
+        'html': (isUser ? '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />' + text :
+          text + '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />')
       }]
     };
 
