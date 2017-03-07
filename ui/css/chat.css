@@ -23,13 +23,9 @@
 }
 
 #chat-flow {
-    overflow: hidden;
+    overflow: scroll;
     position: relative;
     height: 100%;
-}
-
-#chat-flow:hover {
-    overflow-y: scroll;
 }
 
 .user, .watson {
