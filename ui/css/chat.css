@@ -23,13 +23,9 @@
 }
 
 #chat-flow {
-    overflow: hidden;
+    overflow: scroll;
     position: relative;
     height: 100%;
-}
-
-#chat-flow:hover {
-    overflow-y: scroll;
 }
 
 .user, .watson {
@@ -57,7 +53,7 @@
 }
 
 .watson-message {
-    background: #24af4c;
+    background: #008571;
 }
 
 .user-message {
@@ -78,7 +74,7 @@
 .watson-message::after {
     right: -1.65rem;
     bottom: 1.5rem;
-    border-left-color: #24af4c;
+    border-left-color: #008571;
 }
 
 .message-icon {
