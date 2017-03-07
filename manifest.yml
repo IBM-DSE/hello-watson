@@ -1,11 +1,21 @@
 ---
+declared-services:
+  watson-conversation:
+    label: conversation
+    plan: free
+  speech-to-text:
+    label: speech_to_text
+    plan: standard
+  text-to-speech:
+    label: text_to_speech
+    plan: standard
 applications:
 - name: Hello Watson
   memory: 128m
   command: npm start
   services:
-  - SpeechToText
-  - TextToSpeech
-  - WatsonConversation
+  - speech-to-text
+  - text-to-speech
+  - watson-conversation
   env:
     DESCRIPTION: "Your Personal Cognitive Assistant"
