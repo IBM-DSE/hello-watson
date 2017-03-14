@@ -1,11 +1,11 @@
 'use strict';
 
-var sttUsername = process.env.SPEECH_TO_TEXT_USERNAME || '<username>';
-var sttPassword = process.env.SPEECH_TO_TEXT_PASSWORD || '<password>';
+let sttUsername = process.env.SPEECH_TO_TEXT_USERNAME || '<username>';
+let sttPassword = process.env.SPEECH_TO_TEXT_PASSWORD || '<password>';
 
-var sttInform = 0; // Only inform user once
+let sttInform = 0; // Only inform user once
 
-var express = require('express'),
+let express = require('express'),
   router = express.Router(), // eslint-disable-line new-cap
   vcapServices = require('vcap_services'),
   extend = require('util')._extend,
@@ -14,14 +14,14 @@ var express = require('express'),
 // set up an endpoint to serve speech-to-text auth tokens
 
 // For local development, replace username and password or set env properties
-var sttConfig = extend({
+let sttConfig = extend({
   version: 'v1',
   url: 'https://stream.watsonplatform.net/speech-to-text/api',
   username: sttUsername,
   password: sttPassword
 }, vcapServices.getCredentials('speech_to_text'));
 
-var sttAuthService = watson.authorization(sttConfig);
+let sttAuthService = new watson.AuthorizationV1(sttConfig);
 
 // Inform user that STT is not configured properly or at all
 if ( !sttConfig.username || sttConfig.username === '<username>' || !sttConfig.password || sttConfig.password === '<password>' ) {
