@@ -1,777 +1,815 @@
 {
   "name": "Hello Watson",
-  "created": "2016-11-16T23:17:02.002Z",
+  "created": "2017-03-07T01:47:22.308Z",
   "intents": [
     {
       "intent": "affirmative",
-      "created": "2016-11-17T22:24:23.634Z",
-      "updated": "2016-11-18T02:49:30.947Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "absolutely",
-          "created": "2016-11-18T01:24:49.758Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "affirmative",
-          "created": "2016-11-18T01:24:10.219Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "do it",
-          "created": "2016-11-18T01:24:41.152Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "indeed",
-          "created": "2016-11-18T01:24:36.442Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "please do",
-          "created": "2016-11-17T22:58:31.508Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "sure",
-          "created": "2016-11-18T02:49:24.457Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "sure why not",
-          "created": "2016-11-18T02:49:30.947Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "yes",
-          "created": "2016-11-17T22:58:34.033Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "approval",
-      "created": "2016-11-18T01:23:29.734Z",
-      "updated": "2016-11-18T15:42:49.229Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "awesome",
-          "created": "2016-11-18T01:24:14.376Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "cool",
-          "created": "2016-11-18T01:24:16.164Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "excellent",
-          "created": "2016-11-18T01:23:29.734Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "fabulous",
-          "created": "2016-11-18T01:24:31.325Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "fantastic",
-          "created": "2016-11-18T01:23:29.734Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "great",
-          "created": "2016-11-18T01:23:29.734Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "ha ha ha",
-          "created": "2016-11-18T02:55:49.310Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I approve",
-          "created": "2016-11-18T02:54:35.745Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I liked that",
-          "created": "2016-11-18T02:54:21.501Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I like that joke",
-          "created": "2016-11-18T04:14:13.511Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "now you're catching on",
-          "created": "2016-11-18T15:42:49.229Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "okay",
-          "created": "2016-11-18T03:01:21.190Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "stupendous",
-          "created": "2016-11-18T01:24:23.881Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "that's nice to hear",
-          "created": "2016-11-18T01:23:29.734Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "That was great",
-          "created": "2016-11-18T02:54:41.557Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "that was pretty funny",
-          "created": "2016-11-18T02:54:16.386Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "you're starting to learn",
-          "created": "2016-11-18T15:42:41.505Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_abilities",
-      "created": "2016-11-17T22:39:47.741Z",
-      "updated": "2017-03-07T00:55:58.064Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "are you good at anything",
-          "created": "2016-11-17T22:51:58.919Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "is there anything else you can do",
-          "created": "2016-11-17T22:40:06.754Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what abilities do you possess",
-          "created": "2016-11-17T22:52:14.415Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what are you good for",
-          "created": "2016-11-17T22:52:03.576Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "What can you do",
-          "created": "2016-11-17T22:40:18.240Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what can you do for me",
-          "created": "2016-11-18T03:01:37.212Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what can you help me with today",
-          "created": "2016-11-18T02:49:56.148Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what is your function",
-          "created": "2017-03-07T00:55:52.741Z",
-          "updated": "2017-03-07T00:55:52.741Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what is your purpose",
-          "created": "2017-03-07T00:55:58.064Z",
-          "updated": "2017-03-07T00:55:58.064Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what services do you provide",
-          "created": "2016-11-17T22:40:29.513Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_joke",
-      "created": "2016-11-17T14:52:12.918Z",
-      "updated": "2016-11-18T15:22:26.342Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "give me a joke",
-          "created": "2016-11-17T14:59:07.579Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I want a joke",
-          "created": "2016-11-17T14:59:21.533Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "make me laugh",
-          "created": "2016-11-17T14:59:11.731Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "tell me a joke",
-          "created": "2016-11-17T14:58:56.459Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "tell me something funny",
-          "created": "2016-11-17T14:59:00.241Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what kind of jokes do you tell",
-          "created": "2016-11-18T15:22:26.342Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_learn_speed",
-      "created": "2016-11-21T20:52:58.755Z",
-      "updated": "2016-11-21T20:52:58.755Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "how fast do you learn",
-          "created": "2016-11-21T20:52:58.755Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "how long does it take you to learn things",
-          "created": "2016-11-21T20:52:58.755Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what is the speed of your machine learning",
-          "created": "2016-11-21T20:52:58.755Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what is your learning speed",
-          "created": "2016-11-21T20:52:58.755Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what velocity begets your learning capabilities",
-          "created": "2016-11-21T20:52:58.755Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_me",
-      "created": "2016-11-17T15:04:20.428Z",
-      "updated": "2016-11-21T20:45:37.838Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "ask me a question",
-          "created": "2016-11-17T15:04:20.428Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "ask me something",
-          "created": "2016-11-21T20:45:37.838Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what do you want to know about me",
-          "created": "2016-11-17T15:04:20.428Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "what would you like to know about me",
-          "created": "2016-11-21T20:45:23.972Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "your turn to ask me a question",
-          "created": "2016-11-21T20:45:33.552Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_state",
-      "created": "2016-11-17T22:22:19.911Z",
-      "updated": "2016-11-17T22:22:19.911Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "Are you well",
-          "created": "2016-11-17T22:22:19.911Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Everything good",
-          "created": "2016-11-17T22:22:19.911Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "How are you",
-          "created": "2016-11-17T22:22:19.911Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "how do you feel",
-          "created": "2016-11-17T22:22:19.911Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "How's it going",
-          "created": "2016-11-17T22:22:19.911Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "is everything okay",
-          "created": "2016-11-17T22:22:19.911Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_understand",
-      "created": "2016-11-20T21:18:44.666Z",
-      "updated": "2016-11-20T21:18:44.666Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "Can you understand me",
-          "created": "2016-11-20T21:18:44.666Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "who can't you understand my accent",
-          "created": "2016-11-20T21:18:44.666Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "why don't you get what I'm saying",
-          "created": "2016-11-20T21:18:44.666Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "why don't you recognize what I'm saying",
-          "created": "2016-11-20T21:18:44.666Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "why don't you understand",
-          "created": "2016-11-20T21:18:44.666Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "you have poor comprehension",
-          "created": "2016-11-20T21:18:44.666Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "ask_who",
-      "created": "2016-11-17T14:52:37.757Z",
-      "updated": "2016-11-21T20:43:53.394Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "What do they call you?",
-          "created": "2016-11-21T20:43:20.729Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "What do you go by?",
-          "created": "2016-11-21T20:43:27.676Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "What is your name?",
-          "created": "2016-11-21T20:43:34.436Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "What's your designation?",
-          "created": "2016-11-21T20:43:41.658Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Who are you?",
-          "created": "2016-11-21T20:43:53.394Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "who goes there",
-          "created": "2016-11-17T14:59:40.664Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "who is it",
-          "created": "2016-11-17T14:59:35.280Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "who's at the door",
-          "created": "2016-11-17T14:59:46.613Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "who's there",
-          "created": "2016-11-17T14:59:31.825Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "yes",
-          "created": "2016-11-17T22:29:32.697Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "cancel",
-      "created": "2016-11-17T15:02:09.986Z",
-      "updated": "2016-11-18T03:02:23.839Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "cancel",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "cut it out",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "get out of here",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "go away",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I don't want this",
-          "created": "2016-11-18T03:02:11.027Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "leave me alone",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "never mind",
-          "created": "2016-11-18T02:53:53.085Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "not again",
-          "created": "2016-11-18T03:02:18.304Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "please stop it",
-          "created": "2016-11-18T03:02:23.839Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "quit",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "stop",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "stop it",
-          "created": "2016-11-17T15:02:09.986Z",
-          "updated": "2016-11-29T18:20:38.510Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "disapproval",
-      "created": "2016-11-17T22:55:00.581Z",
-      "updated": "2016-11-21T20:50:42.262Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "don't do that again",
-          "created": "2016-11-17T22:55:00.581Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I didn't like that",
-          "created": "2016-11-17T22:55:00.581Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I disapprove",
-          "created": "2016-11-17T22:55:00.581Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I do not approve",
-          "created": "2016-11-21T20:50:36.465Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I feel disapproval",
-          "created": "2016-11-21T20:50:42.262Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "that was a lame joke",
-          "created": "2016-11-18T04:16:54.723Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "that was awful",
-          "created": "2016-11-17T22:55:00.581Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "that was bad",
-          "created": "2016-11-17T22:55:00.581Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "that was horrible",
-          "created": "2016-11-17T22:55:00.581Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "greeting",
-      "created": "2016-11-17T23:03:55.902Z",
-      "updated": "2017-03-05T00:28:04.578Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "good afternoon",
-          "created": "2016-11-17T23:04:33.591Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Good Day",
-          "created": "2016-11-17T23:03:55.902Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "good evening",
-          "created": "2016-11-17T23:04:29.559Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Good morning",
-          "created": "2016-11-17T23:03:55.902Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Greetings",
-          "created": "2016-11-17T23:03:55.902Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Hello",
-          "created": "2016-11-17T23:03:55.902Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Hello Watson",
-          "created": "2016-11-18T02:43:15.861Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Hey",
-          "created": "2017-03-05T00:28:04.578Z",
-          "updated": "2017-03-05T00:28:04.578Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "Hi",
-          "created": "2016-11-17T23:03:55.902Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "help",
-      "created": "2016-11-17T22:36:00.135Z",
-      "updated": "2016-11-17T22:40:55.445Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "Assist me",
-          "created": "2016-11-17T22:40:55.445Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "help",
-          "created": "2016-11-17T22:36:00.135Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "help me out",
-          "created": "2016-11-17T22:40:45.606Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I need help",
-          "created": "2016-11-17T22:36:00.135Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I need some assistance",
-          "created": "2016-11-17T22:36:00.135Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "image",
-      "created": "2017-03-05T00:18:42.340Z",
-      "updated": "2017-03-05T00:18:42.340Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "image",
-          "created": "2017-03-05T00:18:42.340Z",
-          "updated": "2017-03-05T00:18:42.340Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "i want to see an image",
-          "created": "2017-03-05T00:18:42.340Z",
-          "updated": "2017-03-05T00:18:42.340Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "show me an image",
-          "created": "2017-03-05T00:18:42.340Z",
-          "updated": "2017-03-05T00:18:42.340Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "show me a pic",
-          "created": "2017-03-05T00:18:42.340Z",
-          "updated": "2017-03-05T00:18:42.340Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "show me a picture",
-          "created": "2017-03-05T00:18:42.340Z",
-          "updated": "2017-03-05T00:18:42.340Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     },
     {
       "intent": "negative",
-      "created": "2016-11-21T20:36:46.127Z",
-      "updated": "2016-11-21T20:36:46.127Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "absolutely not",
-          "created": "2016-11-21T20:36:46.127Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "negative",
-          "created": "2016-11-21T20:36:46.127Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "no",
-          "created": "2016-11-21T20:36:46.127Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "nope",
-          "created": "2016-11-21T20:36:46.127Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "please don't",
-          "created": "2016-11-21T20:36:46.127Z",
-          "updated": "2016-11-29T18:16:19.891Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
+        }
+      ],
+      "description": null
+    },
+    {
+      "intent": "thank",
+      "created": "2017-03-14T00:29:02.174Z",
+      "updated": "2017-03-14T00:29:02.174Z",
+      "examples": [
+        {
+          "text": "appreciate it",
+          "created": "2017-03-14T00:29:02.174Z",
+          "updated": "2017-03-14T00:29:02.174Z"
+        },
+        {
+          "text": "much obliged",
+          "created": "2017-03-14T00:29:02.174Z",
+          "updated": "2017-03-14T00:29:02.174Z"
+        },
+        {
+          "text": "thanks",
+          "created": "2017-03-14T00:29:02.174Z",
+          "updated": "2017-03-14T00:29:02.174Z"
+        },
+        {
+          "text": "thank you",
+          "created": "2017-03-14T00:29:02.174Z",
+          "updated": "2017-03-14T00:29:02.174Z"
+        },
+        {
+          "text": "thank you so much",
+          "created": "2017-03-14T00:29:02.174Z",
+          "updated": "2017-03-14T00:29:02.174Z"
+        },
+        {
+          "text": "thank you Watson",
+          "created": "2017-03-14T00:29:02.174Z",
+          "updated": "2017-03-14T00:29:02.174Z"
         }
       ],
       "description": null
     },
     {
       "intent": "uncertainty",
-      "created": "2016-11-18T02:50:48.347Z",
-      "updated": "2016-11-18T07:22:20.647Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "examples": [
         {
           "text": "dunno",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I am uncertain",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I cannot say",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I don't know",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I'm not sure that I approve",
-          "created": "2016-11-18T07:22:20.647Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "I'm unsure",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "maybe",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "perhaps",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "tough to say",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         },
         {
           "text": "unclear",
-          "created": "2016-11-18T02:50:48.347Z",
-          "updated": "2016-11-29T18:18:19.021Z"
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z"
         }
       ],
       "description": null
     }
   ],
-  "updated": "2017-03-07T00:55:58.064Z",
+  "updated": "2017-03-14T00:29:44.366Z",
   "entities": [
     {
       "type": null,
@@ -780,8 +818,8 @@
       "values": [
         {
           "value": "hatred",
-          "created": "2016-11-21T20:33:21.629Z",
-          "updated": "2016-11-21T20:33:21.629Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": [
             "hate",
@@ -790,8 +828,8 @@
         },
         {
           "value": "violence",
-          "created": "2016-11-21T20:33:21.629Z",
-          "updated": "2016-11-21T20:33:21.629Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": [
             "decimate",
@@ -803,8 +841,8 @@
           ]
         }
       ],
-      "created": "2016-11-21T20:33:21.629Z",
-      "updated": "2016-11-21T20:33:21.629Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "open_list": false,
       "description": null
     },
@@ -815,42 +853,42 @@
       "values": [
         {
           "value": "Good afternoon",
-          "created": "2016-11-18T15:19:08.056Z",
-          "updated": "2016-11-18T15:20:36.359Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": []
         },
         {
           "value": "Good day",
-          "created": "2016-11-18T15:19:08.056Z",
-          "updated": "2016-11-18T15:20:37.726Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": []
         },
         {
           "value": "Good evening",
-          "created": "2016-11-18T15:19:08.056Z",
-          "updated": "2016-11-18T15:20:40.697Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": []
         },
         {
           "value": "Good morning",
-          "created": "2016-11-18T15:19:08.056Z",
-          "updated": "2016-11-18T15:20:42.325Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": []
         },
         {
           "value": "Greetings",
-          "created": "2016-11-18T15:19:08.056Z",
-          "updated": "2016-11-18T15:20:43.653Z",
+          "created": "2017-03-07T01:47:22.308Z",
+          "updated": "2017-03-07T01:47:22.308Z",
           "metadata": null,
           "synonyms": []
         }
       ],
-      "created": "2016-11-18T15:19:08.056Z",
-      "updated": "2016-11-18T15:19:08.056Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "open_list": false,
       "description": null
     }
@@ -868,8 +906,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-21T20:33:32.883Z",
-      "updated": "2016-11-21T20:56:11.450Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "@bad_concept",
       "description": null,
@@ -883,8 +921,8 @@
       },
       "parent": "node_1_1479423305803",
       "context": null,
-      "created": "2016-11-17T22:56:40.829Z",
-      "updated": "2016-11-17T23:01:08.174Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#affirmative",
       "description": null,
@@ -898,8 +936,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-17T22:37:01.139Z",
-      "updated": "2016-11-21T20:33:32.883Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#help",
       "description": null,
@@ -913,8 +951,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-17T22:39:39.160Z",
-      "updated": "2016-11-17T22:39:47.879Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_abilities",
       "description": null,
@@ -928,8 +966,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-17T22:22:28.933Z",
-      "updated": "2016-11-20T21:18:52.001Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_state",
       "description": null,
@@ -943,8 +981,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-20T21:18:52.001Z",
-      "updated": "2016-11-21T20:53:15.016Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_understand",
       "description": null,
@@ -958,8 +996,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-21T20:53:15.016Z",
-      "updated": "2016-11-21T20:53:55.326Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_learn_speed",
       "description": null,
@@ -973,8 +1011,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-17T22:24:35.876Z",
-      "updated": "2016-11-21T20:55:43.209Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#approval || #affirmative",
       "description": null,
@@ -988,8 +1026,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-16T23:17:17.845Z",
-      "updated": "2016-11-17T22:37:01.139Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "anything_else",
       "description": null,
@@ -1003,8 +1041,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-17T22:55:05.962Z",
-      "updated": "2017-03-05T00:29:08.238Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#disapproval || #negative",
       "description": null,
@@ -1018,8 +1056,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-16T23:17:18.201Z",
-      "updated": "2016-11-21T20:44:08.391Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_who",
       "description": null,
@@ -1033,8 +1071,8 @@
       },
       "parent": "node_7_1479440343452",
       "context": null,
-      "created": "2016-11-18T03:40:50.092Z",
-      "updated": "2016-12-06T18:21:59.371Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1048,8 +1086,8 @@
       },
       "parent": "node_1_1479423305803",
       "context": null,
-      "created": "2016-11-17T22:57:01.304Z",
-      "updated": "2016-11-21T20:40:05.445Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#negative || #cancel || #disapproval",
       "description": null,
@@ -1063,8 +1101,8 @@
       },
       "parent": "node_5_1479394335855",
       "context": null,
-      "created": "2016-11-17T15:02:49.236Z",
-      "updated": "2016-11-17T15:02:57.268Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#cancel",
       "description": null,
@@ -1078,8 +1116,8 @@
       },
       "parent": "node_6_1479440272444",
       "context": null,
-      "created": "2016-11-17T15:02:16.416Z",
-      "updated": "2016-11-18T03:38:38.419Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#cancel",
       "description": null,
@@ -1093,8 +1131,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-21T20:56:11.450Z",
-      "updated": "2016-11-21T20:57:18.579Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#cancel",
       "description": null,
@@ -1108,8 +1146,8 @@
       },
       "parent": "node_1_1479441182550",
       "context": null,
-      "created": "2016-11-18T04:02:07.419Z",
-      "updated": "2016-11-18T04:04:09.734Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "$joke:secret",
       "description": null,
@@ -1123,8 +1161,8 @@
       },
       "parent": "node_2_1479441622540",
       "context": null,
-      "created": "2016-11-18T04:00:49.627Z",
-      "updated": "2016-11-18T04:04:59.833Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1138,8 +1176,8 @@
       },
       "parent": "node_11_1479395076048",
       "context": null,
-      "created": "2016-11-17T15:04:50.320Z",
-      "updated": "2016-11-17T15:05:01.644Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1153,8 +1191,8 @@
       },
       "parent": "node_5_1479394335855",
       "context": null,
-      "created": "2016-11-17T14:53:28.636Z",
-      "updated": "2016-11-17T22:13:11.860Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "input.text == \"Watson who\"",
       "description": null,
@@ -1168,13 +1206,13 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-18T02:51:10.279Z",
-      "updated": "2016-11-18T02:52:00.395Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#uncertainty",
       "description": null,
       "dialog_node": "node_5_1479437470102",
-      "previous_sibling": "node_2_1479421475730"
+      "previous_sibling": "node_2_1489451383053"
     },
     {
       "go_to": null,
@@ -1183,8 +1221,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-17T15:04:35.319Z",
-      "updated": "2016-11-17T15:04:50.081Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_me",
       "description": null,
@@ -1203,8 +1241,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2017-03-05T00:19:07.852Z",
-      "updated": "2017-03-05T00:22:46.277Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#image",
       "description": null,
@@ -1225,8 +1263,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-18T15:19:33.260Z",
-      "updated": "2017-03-06T23:47:47.872Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "@greeting",
       "description": null,
@@ -1247,8 +1285,8 @@
       },
       "parent": null,
       "context": null,
-      "created": "2016-11-16T23:17:09.769Z",
-      "updated": "2017-03-06T23:46:37.678Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "conversation_start || #greeting",
       "description": null,
@@ -1258,13 +1296,35 @@
     {
       "go_to": null,
       "output": {
+        "text": {
+          "values": [
+            "You're very welcome!",
+            "You are most welcome!",
+            "It is my pleasure!"
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": null,
+      "context": null,
+      "created": "2017-03-14T00:29:17.656Z",
+      "updated": "2017-03-14T00:29:44.366Z",
+      "metadata": null,
+      "conditions": "#thank",
+      "description": null,
+      "dialog_node": "node_2_1489451383053",
+      "previous_sibling": "node_2_1479421475730"
+    },
+    {
+      "go_to": null,
+      "output": {
         "text": "Can a kangaroo jump higher than a house?",
         "autoMic": true
       },
       "parent": "node_1_1479441182550",
       "context": null,
-      "created": "2016-11-18T03:39:03.656Z",
-      "updated": "2016-12-06T18:14:17.763Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "$joke:kangaroo",
       "description": null,
@@ -1279,8 +1339,8 @@
       },
       "parent": "node_1_1479441182550",
       "context": null,
-      "created": "2016-11-18T03:37:52.823Z",
-      "updated": "2016-11-18T04:03:37.600Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "$joke:knock_knock",
       "description": null,
@@ -1295,8 +1355,8 @@
       },
       "parent": "node_6_1479440272444",
       "context": null,
-      "created": "2016-11-17T14:52:15.105Z",
-      "updated": "2016-11-18T03:38:32.954Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_who",
       "description": null,
@@ -1311,8 +1371,8 @@
       },
       "parent": "node_1_1479441182550",
       "context": null,
-      "created": "2016-11-18T04:00:22.736Z",
-      "updated": "2016-11-18T04:03:58.662Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "$joke:snowman",
       "description": null,
@@ -1335,8 +1395,8 @@
           "secrets"
         ]
       },
-      "created": "2016-11-17T14:51:50.783Z",
-      "updated": "2016-11-18T04:02:35.420Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "#ask_joke",
       "description": null,
@@ -1352,8 +1412,8 @@
       "output": {},
       "parent": "node_1_1479423305803",
       "context": null,
-      "created": "2016-11-17T22:57:43.311Z",
-      "updated": "2016-11-17T23:03:18.012Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1371,8 +1431,8 @@
       "context": {
         "joke": "<? $jokes.getRandomItem() ?>"
       },
-      "created": "2016-11-18T03:53:02.731Z",
-      "updated": "2016-11-18T03:58:32.446Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1391,8 +1451,8 @@
       },
       "parent": "node_6_1479440272444",
       "context": null,
-      "created": "2016-11-17T14:52:44.706Z",
-      "updated": "2016-11-18T03:38:38.500Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1411,8 +1471,8 @@
       },
       "parent": "node_5_1479394335855",
       "context": null,
-      "created": "2016-11-17T14:57:39.425Z",
-      "updated": "2016-11-18T02:44:48.765Z",
+      "created": "2017-03-07T01:47:22.308Z",
+      "updated": "2017-03-07T01:47:22.308Z",
       "metadata": null,
       "conditions": "true",
       "description": null,
@@ -1420,6 +1480,6 @@
       "previous_sibling": "node_10_1479394969768"
     }
   ],
-  "workspace_id": "0f400eb6-3d39-4bd3-8d49-e787ea0853a1",
+  "workspace_id": "d215e95f-7beb-4325-8dcc-07b5490e0402",
   "counterexamples": []
 }
