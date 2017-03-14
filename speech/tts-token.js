@@ -1,11 +1,11 @@
 'use strict';
 
-var ttsUsername = process.env.TEXT_TO_SPEECH_USERNAME || '<username>';
-var ttsPassword = process.env.TEXT_TO_SPEECH_PASSWORD || '<password>';
+let ttsUsername = process.env.TEXT_TO_SPEECH_USERNAME || '<username>';
+let ttsPassword = process.env.TEXT_TO_SPEECH_PASSWORD || '<password>';
 
-var ttsInform = 0; // Only inform user once
+let ttsInform = 0; // Only inform user once
 
-var express = require('express'),
+let express = require('express'),
   router = express.Router(), // eslint-disable-line new-cap
   vcapServices = require('vcap_services'),
   extend = require('util')._extend,
@@ -14,14 +14,14 @@ var express = require('express'),
 // another endpoint for the text to speech service
 
 // For local development, replace username and password or set env properties
-var ttsConfig = extend({
+let ttsConfig = extend({
   version: 'v1',
   url: 'https://stream.watsonplatform.net/text-to-speech/api',
   username: ttsUsername,
   password: ttsPassword
 }, vcapServices.getCredentials('text_to_speech'));
 
-var ttsAuthService = watson.authorization(ttsConfig);
+let ttsAuthService = watson.authorization(ttsConfig);
 
 // Inform user that TTS is not configured properly or at all
 if ( !ttsConfig.username || ttsConfig.username === '<username>' || !ttsConfig.password || ttsConfig.password === '<password>' ) {
