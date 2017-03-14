@@ -33,15 +33,11 @@ let Api = (function() {
 
     // The request/response getters/setters are defined here to prevent internal methods
     // from calling the methods without any of the callbacks that are added elsewhere.
-    getUserPayload: function() {
-      return userPayload;
-    },
+    // getUserPayload: function() { return userPayload; },
     setUserPayload: function(payload) {
       userPayload = payload;
     },
-    getWatsonPayload: function() {
-      return watsonPayload;
-    },
+    // getWatsonPayload: function() { return watsonPayload; },
     setWatsonPayload: function(payload) {
       watsonPayload = payload;
     }
