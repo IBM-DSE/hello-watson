@@ -18,4 +18,5 @@ applications:
   - text-to-speech
   - watson-conversation
   env:
+    APP_NAME: "Hello Watson"
     DESCRIPTION: "Your Personal Cognitive Assistant"
