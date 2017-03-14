@@ -15,26 +15,26 @@
  */
 
 (function() {
-  var gulp = require('gulp'),
+  let gulp = require('gulp'),
     ejs = require('gulp-ejs'),
     yaml = require('js-yaml'),
     fs = require('fs');
-  var $ = require('gulp-load-plugins')({
+  let $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'gulp.*'],
     replaceString: /\bgulp[\-.]/
   });
-  var appDev = './ui/';
-  var appProd = './dist/';
+  let appDev = './ui/';
+  let appProd = './dist/';
 
   // Determine APP_NAME
   require('dotenv').config({silent: true}); // load from .env file
-  var APP_NAME = process.env.APP_NAME;
+  let APP_NAME = process.env.APP_NAME;
   if(!APP_NAME)
     APP_NAME = process.env.VCAP_APPLICATION ? JSON.parse(process.env.VCAP_APPLICATION).name : null;
   if (!APP_NAME) {
     try { // Get document, or throw exception on error
-      var doc = yaml.safeLoad(fs.readFileSync('manifest.yml', 'utf8'));
-      var name = doc.applications[0].name;
+      let doc = yaml.safeLoad(fs.readFileSync('manifest.yml', 'utf8'));
+      let name = doc.applications[0].name;
       if (typeof name !== 'undefined' && name) APP_NAME = name;
     } catch (e) {
     } finally {
@@ -42,16 +42,16 @@
     }
   }
 
-  // Set darkbackground (false by default)
-  var TITLE = process.env.TITLE ? process.env.TITLE==='true' : true;
+  // Set title (true by default)
+  let TITLE = process.env.TITLE ? process.env.TITLE==='true' : true;
 
-  var DESCRIPTION = process.env.DESCRIPTION;
+  let DESCRIPTION = process.env.DESCRIPTION;
 
   // Set voice interface (true by default)
-  var VOICE_INT = process.env.VOICE_INT ? process.env.VOICE_INT==='true' : true;
+  let VOICE_INT = process.env.VOICE_INT ? process.env.VOICE_INT==='true' : true;
 
-  // Set darkbackground (false by default)
-  var DARK = process.env.DARK ? process.env.DARK==='true' : false;
+  // Set dark background (false by default)
+  let DARK = process.env.DARK ? process.env.DARK==='true' : false;
 
   gulp.task('build-ibm', function() {
     return gulp.src(appDev + 'ibm/*.js')
@@ -72,7 +72,7 @@
   });
 
   gulp.task('build-html', ['build-img', 'build-css', 'build-ibm'], function() {
-    var assets = $.useref({'searchPath': ['ui/**/*.*', 'node_modules']});
+    let assets = $.useref({'searchPath': ['ui/**/*.*', 'node_modules']});
     return gulp.src(appDev + 'index.ejs')
       .pipe(ejs({
         APP_NAME: APP_NAME,

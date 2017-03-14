@@ -16,7 +16,7 @@
  * Created by David on 11/8/16.
  */
 
-var DEBUG = false;
+let DEBUG = false;
 
 module.exports = {
 
