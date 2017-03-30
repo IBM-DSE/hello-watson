@@ -16,7 +16,7 @@ applications:
   services:
   - speech-to-text
   - text-to-speech
-  - watson-conversation
+  - conversation-great-outdoors
   env:
     APP_NAME: "Hello Watson"
     DESCRIPTION: "Your Personal Cognitive Assistant"

@@ -26,6 +26,8 @@ const express = require('express'),
 
 require('dotenv').config({silent: true}); // load environment variables from .env file
 
+require('./pipeline/database.js');
+
 let app = express();
 
 // Redirect http to https if we're in Bluemix
