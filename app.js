@@ -26,6 +26,8 @@ const express = require('express'),
 
 require('dotenv').config({silent: true}); // load environment variables from .env file
 
+require('./pipeline/database.js');
+
 let app = express();
 
 // Redirect http to https if we're in Bluemix
@@ -40,6 +42,8 @@ app.use(express.static(__dirname + "/dist"));
 
 // Endpoint to be called from the client side
 app.use('/api/message', require('./pipeline/conversation.js'));
+
+app.use('/chats', require('./pipeline/database.js').router);
 
 app.use('/api/speech-to-text/', require('./speech/stt-token.js'));
 app.use('/api/text-to-speech/', require('./speech/tts-token.js'));
