@@ -10,7 +10,8 @@ let express = require('express'),
 
 // local module requires
 const context_manager = require('./context_manager'),
-  fulfillment = require('./fulfillment');
+  fulfillment = require('./fulfillment'),
+  database = require('./database.js');
 
 // Set Conversation Service config
 let conversationConfig = extend({
@@ -65,13 +66,9 @@ router.post('/', function(req, res) {
         console.error('conversation.message error: ' + err.error);
         if (err.description) console.error(err.description);
         return res.status(err.code || 500).json(err);
+      } else {
+        database.store(new_payload, data);
       }
-      // if (logs) {
-      //   //If the logs db is set, then we want to record all input and responses
-      //   let id = uuid.v4();
-      //   logs.insert({'_id': id, 'request': new_payload, 'response': data, 'time': new Date()}, function (err, data) {
-      //   });
-      // }
       fulfillment.handle_message(res, data);
     });
   });
