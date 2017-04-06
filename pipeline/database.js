@@ -32,12 +32,7 @@ log_pass = log_pass || process.env.LOG_PASS;
 
 let logs = null;
 
-if (cloudantUrl) {
-  // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
-  // app developer must also specify a LOG_USER and LOG_PASS env vars.
-  if (!log_user || !log_pass) {
-    throw new Error('LOG_USER OR LOG_PASS not defined, both required to enable logging!');
-  }
+if (cloudantUrl && log_user && log_pass) {  // if we have cloudant url and credentials
 
   // add basic auth to the endpoints to retrieve the logs!
   let auth = basicAuth(log_user, log_pass);
