@@ -87,7 +87,7 @@ function conversation_vars_set() {
     correct = false;
   }
   if (!workspace_id) {
-    console.error(err_msg.replace('Var', 'Workspace ID').replace('CONVERSATION_VAR', 'WORKSPACE_ID') + ext_msg);
+    console.error(err_msg.replace('Var', 'Workspace ID').replace('CONVERSATION_VAR', 'WORKSPACE_ID'));
     correct = false;
   }
   return correct;
