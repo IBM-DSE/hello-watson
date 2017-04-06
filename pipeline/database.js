@@ -19,22 +19,28 @@ const db_name = 'chat_logs';
 // endpoints
 let cloudantCredentials = vcapServices.getCredentials('cloudantNoSQLDB');
 let cloudantUrl = null;
+let log_user = null;
+let log_pass = null;
 if (cloudantCredentials) {
   cloudantUrl = cloudantCredentials.url;
+  log_user = cloudantCredentials.username;
+  log_pass = cloudantCredentials.password;
 }
 cloudantUrl = cloudantUrl || process.env.CLOUDANT_URL; // || '<cloudant_url>';
+log_user = log_user || process.env.LOG_USER;
+log_pass = log_pass || process.env.LOG_PASS;
 
 let logs = null;
 
 if (cloudantUrl) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
   // app developer must also specify a LOG_USER and LOG_PASS env vars.
-  if (!process.env.LOG_USER || !process.env.LOG_PASS) {
+  if (!log_user || !log_pass) {
     throw new Error('LOG_USER OR LOG_PASS not defined, both required to enable logging!');
   }
 
   // add basic auth to the endpoints to retrieve the logs!
-  let auth = basicAuth(process.env.LOG_USER, process.env.LOG_PASS);
+  let auth = basicAuth(log_user, log_pass);
 
   // If the cloudantUrl has been configured then we will want to set up a nano client
   let nano = require('nano')(cloudantUrl);
