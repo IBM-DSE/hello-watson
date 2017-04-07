@@ -60,6 +60,13 @@ var Conversation = (function() {
   function chatSetup() {
     document.getElementById(ids.chatScrollWrapper).style.display = 'none';
 
+    var search = location.search.substring(1);
+    console.log(search);
+    if(search){
+      var context = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      Api.setContext(context);
+    }
+
     var currentRequestPayloadSetter = Api.setUserPayload;
     Api.setUserPayload = function(payload) {
       currentRequestPayloadSetter.call(Api, payload);

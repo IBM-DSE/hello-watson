@@ -37,6 +37,9 @@ let Api = (function() {
     setUserPayload: function(payload) {
       userPayload = payload;
     },
+    setContext: function (newContext) {
+      context = newContext;
+    },
     // getWatsonPayload: function() { return watsonPayload; },
     setWatsonPayload: function(payload) {
       watsonPayload = payload;
