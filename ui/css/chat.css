@@ -93,6 +93,18 @@
     bottom: 0.2rem;
 }
 
+.big {
+    font-size: 16px;
+}
+
+.very-big {
+    font-size: 18px;
+}
+
+.huge {
+    font-size: 20px;
+}
+
 img {
     max-height: 400px;
     max-width: 100%;
