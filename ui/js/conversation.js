@@ -188,6 +188,15 @@ var Conversation = (function() {
     Api.postConversationMessage(text);
   }
 
+  function addMessage(chatBoxElement, messageDiv) {
+    chatBoxElement.appendChild(messageDiv);
+    updateChat();
+  }
+
+  function delayMessagePost(chatBoxElement, messageDiv, i, delay) {
+    setTimeout(function() { addMessage(chatBoxElement, messageDiv); }, i*delay*1000);
+  }
+
   // Display a message, given a message payload and a message type (user or Watson)
   // TODO: Make sure that newline characters at the end don't mess with the question mark detection
   function displayMessage(newPayload, typeValue) {
@@ -212,13 +221,12 @@ var Conversation = (function() {
       if(Array.isArray(text)){
         for(var i in text){
           var messageDiv = buildMessageDomElement(text[i], isUser);
-          chatBoxElement.appendChild(messageDiv);
+          delayMessagePost(chatBoxElement, messageDiv, i, dataObj.delay);
         }
       } else {
         var messageDiv = buildMessageDomElement(text, isUser);
-        chatBoxElement.appendChild(messageDiv);
+        addMessage(chatBoxElement, messageDiv);
       }
-      updateChat();
     }
   }
 
