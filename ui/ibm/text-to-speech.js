@@ -21,7 +21,7 @@ var TTSModule = (function() {
   var audio = null; // Initialize audio to null
   var button = document.getElementById('speaker-image');
   button.value = button.getAttribute('value');
-  var audio_setting = localStorage.getItem("audio_setting") || button.value;
+  var audio_setting = localStorage.getItem('audio_setting') || button.value;
   Common.hide(button); // In case user is using invalid browsers
 
   return {
@@ -69,7 +69,7 @@ var TTSModule = (function() {
       button.setAttribute('class', 'audio-off');
     }
     button.setAttribute('value', button.value);
-    localStorage.setItem("audio_setting", button.value);
+    localStorage.setItem('audio_setting', button.value);
   }
 
   // Stops the audio for an older message and plays audio for current message
@@ -78,45 +78,45 @@ var TTSModule = (function() {
       .then(function(response) {
         return response.text();
       }).then(function(token) {
-      if (button.value === 'ON' && ( typeof output.speech == 'undefined' || output.speech )) {
+        if (button.value === 'ON' && ( typeof output.speech == 'undefined' || output.speech )) {
         // Takes text, voice, and token and returns speech
 
-        if (output.text) { // If payload.text is defined
+          if (output.text) { // If payload.text is defined
 
           // prefer the output speech, otherwise read the output text
           //TODO: handle multiple strings, some with speech, some with text.
-          var voice_output = output.speech ? output.speech : output.text;
+            var voice_output = output.speech ? output.speech : output.text;
 
           // join array of strings into one string of sentences for correct voice output
-          if(Array.isArray(voice_output)) voice_output = voice_output.join('. ');
+            if(Array.isArray(voice_output)) voice_output = voice_output.join('. ');
 
           // Pauses the audio for older message if there is a more current message
-          if (audio !== null && !audio.ended) {
-            audio.pause();
-          }
+            if (audio !== null && !audio.ended) {
+              audio.pause();
+            }
           //TODO: gracefully handle: Failed to load resource: the server responded with a status of 400 (Bad Request)
-          audio = WatsonSpeech.TextToSpeech.synthesize({
-            text: voice_output, // Output text/response
-            voice: 'en-US_MichaelVoice', // Default Watson voice
-            autoPlay: true, // Automatically plays audio
-            token: token
-          });
+            audio = WatsonSpeech.TextToSpeech.synthesize({
+              text: voice_output, // Output text/response
+              voice: 'en-US_MichaelVoice', // Default Watson voice
+              autoPlay: true, // Automatically plays audio
+              token: token
+            });
           // When the audio stops playing
-          audio.onended = function() {
-            allowSTT(output, voice_output); // Check if user wants to use STT
-          };
-        } else {
+            audio.onended = function() {
+              allowSTT(output, voice_output); // Check if user wants to use STT
+            };
+          } else {
           // Pauses the audio for older message if there is a more current message
-          if (audio !== null && !audio.ended) {
-            audio.pause();
-          }
+            if (audio !== null && !audio.ended) {
+              audio.pause();
+            }
           // When payload.text is undefined
+            allowSTT(output); // Check if user wants to use STT
+          }
+        } else { // When TTS is muted
           allowSTT(output); // Check if user wants to use STT
         }
-      } else { // When TTS is muted
-        allowSTT(output); // Check if user wants to use STT
-      }
-    });
+      });
   }
 
   // Check for conditions to allow user to use STT input

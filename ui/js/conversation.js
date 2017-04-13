@@ -22,7 +22,7 @@
 /* global Api: true, Common: true */
 
 
-var Conversation = (function() {
+var Conversation = (function () {
   'use strict';
   var ids = {
     userInput: 'user-input',
@@ -62,19 +62,19 @@ var Conversation = (function() {
 
     var search = location.search.substring(1);
     console.log(search);
-    if(search){
-      var context = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+    if (search) {
+      var context = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
       Api.setContext(context);
     }
 
     var currentRequestPayloadSetter = Api.setUserPayload;
-    Api.setUserPayload = function(payload) {
+    Api.setUserPayload = function (payload) {
       currentRequestPayloadSetter.call(Api, payload);
       displayMessage(payload, authorTypes.user);
     };
 
     var currentResponsePayloadSetter = Api.setWatsonPayload;
-    Api.setWatsonPayload = function(payload) {
+    Api.setWatsonPayload = function (payload) {
       currentResponsePayloadSetter.call(Api, payload);
       displayMessage(payload, authorTypes.watson);
     };
@@ -83,7 +83,7 @@ var Conversation = (function() {
   // Set up the input box to submit a message when enter is pressed
   function initEnterSubmit() {
     document.getElementById(ids.userInput)
-        .addEventListener('keypress', function(event) {
+        .addEventListener('keypress', function (event) {
           if (event.keyCode === 13) {
             sendMessage();
             event.preventDefault();
@@ -95,68 +95,68 @@ var Conversation = (function() {
   // This is done by creating a hidden dummy version of the input box that
   // is used to determine what the width of the input text should be.
   // This value is then used to set the new width of the visible input box.
-  function setupInputBox() {
-    var input = document.getElementById(ids.userInput);
-    var dummy = document.getElementById(ids.userInputDummy);
-    var minFontSize = 9;
-    var maxFontSize = 16;
-    var minPadding = 5;
-    var maxPadding = 9;
-
-    // If no dummy input box exists, create one
-    if (dummy === null) {
-      var dummyJson = {
-        'tagName': 'div',
-        'attributes': [{
-          'name': 'id',
-          'value': (ids.userInputDummy)
-        }]
-      };
-
-      dummy = Common.buildDomElement(dummyJson);
-      document.body.appendChild(dummy);
-    }
-
-    function adjustInput() {
-      if (input.value === '') {
-        // If the input box is empty, remove the underline
-        Common.removeClass(input, 'underline');
-        input.setAttribute('style', 'width:' + '100%');
-        input.style.width = '100%';
-      } else {
-        // otherwise, adjust the dummy text to match, and then set the width of
-        // the visible input box to match it (thus extending the underline)
-        Common.addClass(input, classes.underline);
-        var txtNode = document.createTextNode(input.value);
-        ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
-          'text-transform', 'letter-spacing'].forEach(function(index) {
-            dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
-          });
-        dummy.textContent = txtNode.textContent;
-
-        var padding = 0;
-        var htmlElem = document.getElementsByTagName('html')[0];
-        var currentFontSize = parseInt(window.getComputedStyle(htmlElem, null).getPropertyValue('font-size'), 10);
-        if (currentFontSize) {
-          padding = Math.floor((currentFontSize - minFontSize) / (maxFontSize - minFontSize)
-            * (maxPadding - minPadding) + minPadding);
-        } else {
-          padding = maxPadding;
-        }
-
-        var widthValue = ( dummy.offsetWidth + padding) + 'px';
-        input.setAttribute('style', 'width:' + widthValue);
-        input.style.width = widthValue;
-      }
-    }
-
-    // Any time the input changes, or the window resizes, adjust the size of the input box
-    input.addEventListener('input', adjustInput);
-    window.addEventListener('resize', adjustInput);
-
-    // Trigger the input event once to set up the input box and dummy element
-    Common.fireEvent(input, 'input');
-  }
+  // function setupInputBox() {
+  //   var input = document.getElementById(ids.userInput);
+  //   var dummy = document.getElementById(ids.userInputDummy);
+  //   var minFontSize = 9;
+  //   var maxFontSize = 16;
+  //   var minPadding = 5;
+  //   var maxPadding = 9;
+  //
+  //   // If no dummy input box exists, create one
+  //   if (dummy === null) {
+  //     var dummyJson = {
+  //       'tagName': 'div',
+  //       'attributes': [{
+  //         'name': 'id',
+  //         'value': (ids.userInputDummy)
+  //       }]
+  //     };
+  //
+  //     dummy = Common.buildDomElement(dummyJson);
+  //     document.body.appendChild(dummy);
+  //   }
+  //
+  //   function adjustInput() {
+  //     if (input.value === '') {
+  //       // If the input box is empty, remove the underline
+  //       Common.removeClass(input, 'underline');
+  //       input.setAttribute('style', 'width:' + '100%');
+  //       input.style.width = '100%';
+  //     } else {
+  //       // otherwise, adjust the dummy text to match, and then set the width of
+  //       // the visible input box to match it (thus extending the underline)
+  //       Common.addClass(input, classes.underline);
+  //       var txtNode = document.createTextNode(input.value);
+  //       ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
+  //         'text-transform', 'letter-spacing'].forEach(function (index) {
+  //           dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
+  //         });
+  //       dummy.textContent = txtNode.textContent;
+  //
+  //       var padding = 0;
+  //       var htmlElem = document.getElementsByTagName('html')[0];
+  //       var currentFontSize = parseInt(window.getComputedStyle(htmlElem, null).getPropertyValue('font-size'), 10);
+  //       if (currentFontSize) {
+  //         padding = Math.floor((currentFontSize - minFontSize) / (maxFontSize - minFontSize)
+  //           * (maxPadding - minPadding) + minPadding);
+  //       } else {
+  //         padding = maxPadding;
+  //       }
+  //
+  //       var widthValue = ( dummy.offsetWidth + padding) + 'px';
+  //       input.setAttribute('style', 'width:' + widthValue);
+  //       input.style.width = widthValue;
+  //     }
+  //   }
+  //
+  //   // Any time the input changes, or the window resizes, adjust the size of the input box
+  //   input.addEventListener('input', adjustInput);
+  //   window.addEventListener('resize', adjustInput);
+  //
+  //   // Trigger the input event once to set up the input box and dummy element
+  //   Common.fireEvent(input, 'input');
+  // }
 
   // Retrieve the value of the input box
   function getMessage() {
@@ -194,7 +194,7 @@ var Conversation = (function() {
   }
 
   function delayMessagePost(chatBoxElement, messageDiv, i, delay) {
-    setTimeout(function() { addMessage(chatBoxElement, messageDiv); }, i*delay*1000);
+    setTimeout(function () { addMessage(chatBoxElement, messageDiv); }, i * delay * 1000);
   }
 
   // Display a message, given a message payload and a message type (user or Watson)
@@ -217,9 +217,9 @@ var Conversation = (function() {
 
       var chatBoxElement = document.getElementById(ids.chatFlow);
 
-      //TODO: updateChat after images have been loaded
-      if(Array.isArray(text)){
-        for(var i in text){
+      // TODO: updateChat after images have been loaded
+      if (Array.isArray(text)) {
+        for (var i in text) {
           var messageDiv = buildMessageDomElement(text[i], isUser);
           delayMessagePost(chatBoxElement, messageDiv, i, dataObj.delay);
         }
@@ -245,12 +245,12 @@ var Conversation = (function() {
     // var dataObj = isUser ? newPayload.input : newPayload.output;
 
     var content = [];
-    if(isUser) content += '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />';
+    if (isUser) content += '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />';
     content += {
       'tagName': 'p',
       'html': text
     };
-    if(!isUser) content += '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />';
+    if (!isUser) content += '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />';
 
     var messageJson = {
       // <div class='user / watson'>
@@ -261,7 +261,7 @@ var Conversation = (function() {
         'tagName': 'div',
         'classNames': (isUser
           ? [authorTypes.user + '-message']
-          : [authorTypes.watson + '-message']),//, classes.preBar
+          : [authorTypes.watson + '-message']), // , classes.preBar
         // 'children': content
         'html': (isUser ? '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />' + text :
           text + '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />')

@@ -70,7 +70,7 @@ var STTModule = (function() {
   }
 
   function micOff() {
-    console.log("Turning off the mic.");
+    console.log('Turning off the mic.');
     user_input.disabled = false;
     mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
     recording = false;                          // We aren't recording anymore

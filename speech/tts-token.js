@@ -21,7 +21,7 @@ let ttsConfig = extend({
   password: ttsPassword
 }, vcapServices.getCredentials('text_to_speech'));
 
-let ttsAuthService = watson.authorization(ttsConfig);
+let ttsAuthService = new watson.AuthorizationV1(ttsConfig);
 
 // Inform user that TTS is not configured properly or at all
 if ( !ttsConfig.username || ttsConfig.username === '<username>' || !ttsConfig.password || ttsConfig.password === '<password>' ) {

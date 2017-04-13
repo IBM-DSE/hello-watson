@@ -20,7 +20,7 @@
 
 (function () {
     // TooltipDialogs.init();
-    Conversation.init();
+  Conversation.init();
     // ConversationResponse.init();
     // Sidebar.init();
     // Animations.init();

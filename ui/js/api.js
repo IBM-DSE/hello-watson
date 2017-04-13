@@ -68,7 +68,7 @@ let Api = (function() {
         Api.setWatsonPayload(response);
       } else {
         Api.setWatsonPayload({output: {text: [
-          "Oops, looks like I'm having some trouble talking to the Conversation Service..."
+          'Oops, looks like I\'m having some trouble talking to the Conversation Service...'
         ]}});
         console.error('Server error when trying to reply!');
       }

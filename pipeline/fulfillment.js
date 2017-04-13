@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-module.exports.handle_message = function(res, watson_data) {
-
+module.exports.handle_message = function (res, watson_data) {
   // watson_data.output.text = "My custom output"
   // watson_data.context.variable = "My custom variable value"
 

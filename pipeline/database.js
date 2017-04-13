@@ -32,7 +32,8 @@ log_pass = log_pass || process.env.LOG_PASS;
 
 let logs = null;
 
-if (cloudantUrl && log_user && log_pass) {  // if we have cloudant url and credentials
+if (cloudantUrl && log_user && log_pass) {
+  // if we have cloudant url and credentials
 
   // add basic auth to the endpoints to retrieve the logs!
   let auth = basicAuth(log_user, log_pass);
@@ -121,7 +122,7 @@ if (cloudantUrl && log_user && log_pass) {  // if we have cloudant url and crede
 }
 
 function store(new_payload, data) {
-  //If the logs db is set, then we want to record all input and responses
+  // If the logs db is set, then we want to record all input and responses
   if (logs) {
     let id = uuid.v4();
     logs.insert({'_id': id, 'request': new_payload, 'response': data, 'time': new Date()}, function (err, data) {

@@ -3,17 +3,6 @@ sudo: true
 cache:
   directories:
   - node_modules
-node_js: 4.4.3
+node_js: 7.5.0
 script:
   - npm run lint
-deploy:
-  provider: cloudfoundry
-  api: https://api.ng.bluemix.net
-  username: $CF_USERNAME
-  password: $CF_PASSWORD
-  name: car-dashboard
-  organization: WatsonPlatformServices
-  space: demos
-  on:
-    repo: watson-developer-cloud/car-dashboard
-    branch: release
