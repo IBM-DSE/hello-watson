@@ -61,7 +61,6 @@ var Conversation = (function () {
     document.getElementById(ids.chatScrollWrapper).style.display = 'none';
 
     var search = location.search.substring(1);
-    console.log(search);
     if (search) {
       var context = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
       Api.setContext(context);
@@ -218,13 +217,14 @@ var Conversation = (function () {
       var chatBoxElement = document.getElementById(ids.chatFlow);
 
       // TODO: updateChat after images have been loaded
+      var messageDiv;
       if (Array.isArray(text)) {
         for (var i in text) {
-          var messageDiv = buildMessageDomElement(text[i], isUser);
+          messageDiv = buildMessageDomElement(text[i], isUser);
           delayMessagePost(chatBoxElement, messageDiv, i, dataObj.delay);
         }
       } else {
-        var messageDiv = buildMessageDomElement(text, isUser);
+        messageDiv = buildMessageDomElement(text, isUser);
         addMessage(chatBoxElement, messageDiv);
       }
     }
@@ -244,13 +244,13 @@ var Conversation = (function () {
   function buildMessageDomElement(text, isUser) {
     // var dataObj = isUser ? newPayload.input : newPayload.output;
 
-    var content = [];
-    if (isUser) content += '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />';
-    content += {
-      'tagName': 'p',
-      'html': text
-    };
-    if (!isUser) content += '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />';
+    // var content = [];
+    // if (isUser) content += '<img class=\'message-icon user-icon\' src=\'/images/head.svg\' />';
+    // content += {
+    //   'tagName': 'p',
+    //   'html': text
+    // };
+    // if (!isUser) content += '<img class=\'message-icon watson-icon\' src=\'/images/watson-logo-round.png\' />';
 
     var messageJson = {
       // <div class='user / watson'>

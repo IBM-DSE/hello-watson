@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* global WatsonSpeech: true, Api: true Common: true, STTModule: true */
+/* global WatsonSpeech: true, Api: true Common: true, STTModule: true $: true */
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^TTSModule$" }] */
 
 var TTSModule = (function() {
@@ -21,6 +21,7 @@ var TTSModule = (function() {
   var audio = null; // Initialize audio to null
   var button = document.getElementById('speaker-image');
   button.value = button.getAttribute('value');
+  var mic_setting = localStorage.getItem('mic_setting') || 'prompt';  // Get mic_setting from browser localStorage
   var audio_setting = localStorage.getItem('audio_setting') || button.value;
   Common.hide(button); // In case user is using invalid browsers
 
@@ -53,6 +54,18 @@ var TTSModule = (function() {
   }
 
   function checkStoredSetting() {
+
+    $(function() {
+      $('#' + mic_setting).prop('checked', true); // set input element corresponding to the initial mic setting to checked
+      $('#auto-mic-label').html($('label[for=' + mic_setting + ']').html()); // set default label based on initial mic setting
+    });
+
+    // update mic_setting variable on click
+    $('#mic-settings').find('li').on('click', function() {
+      mic_setting = $(this)[0].firstChild.id;
+      localStorage.setItem('mic_setting', mic_setting);
+    });
+
     if(audio_setting !== button.value)
       toggle();
   }

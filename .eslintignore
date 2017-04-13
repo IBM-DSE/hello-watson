@@ -6,3 +6,5 @@ ui/ibm/watson-speech.min.js
 ui_config/
 /*.js
 ui/js/libs
+/ui/js/bootstrap.min.js
+/ui/js/dropdowns-enhancement.js

@@ -33,14 +33,14 @@ let Api = (function() {
 
     // The request/response getters/setters are defined here to prevent internal methods
     // from calling the methods without any of the callbacks that are added elsewhere.
-    // getUserPayload: function() { return userPayload; },
+    getUserPayload: function() { return userPayload; },
     setUserPayload: function(payload) {
       userPayload = payload;
     },
     setContext: function (newContext) {
       context = newContext;
     },
-    // getWatsonPayload: function() { return watsonPayload; },
+    getWatsonPayload: function() { return watsonPayload; },
     setWatsonPayload: function(payload) {
       watsonPayload = payload;
     }
@@ -70,11 +70,12 @@ let Api = (function() {
         Api.setWatsonPayload({output: {text: [
           'Oops, looks like I\'m having some trouble talking to the Conversation Service...'
         ]}});
-        console.error('Server error when trying to reply!');
       }
     };
     http.onerror = function() {
-      console.error('Network error trying to send message!');
+      Api.setWatsonPayload({output: {text: [
+        'Oops, looks like I\'m having some trouble talking to the Conversation Service...'
+      ]}});
     };
 
     http.send(JSON.stringify(data));
