@@ -4,7 +4,7 @@
 
 const express = require('express'),
   uuid = require('uuid'),
-  csv = require('express-csv'),
+  // csv = require('express-csv'),
   router = express.Router(), // eslint-disable-line new-cap
   vcapServices = require('vcap_services'),
   basicAuth = require('basic-auth-connect');
@@ -32,7 +32,8 @@ log_pass = log_pass || process.env.LOG_PASS;
 
 let logs = null;
 
-if (cloudantUrl && log_user && log_pass) {  // if we have cloudant url and credentials
+if (cloudantUrl && log_user && log_pass) {
+  // if we have cloudant url and credentials
 
   // add basic auth to the endpoints to retrieve the logs!
   let auth = basicAuth(log_user, log_pass);
@@ -41,9 +42,9 @@ if (cloudantUrl && log_user && log_pass) {  // if we have cloudant url and crede
   let nano = require('nano')(cloudantUrl);
 
   // add a new API which allows us to retrieve the logs (note this is not secure)
-  nano.db.get(db_name, function (err, body) {
+  nano.db.get(db_name, function (err) {
     if (err) {
-      nano.db.create(db_name, function (err, body) {
+      nano.db.create(db_name, function (err) {
         if (err) {
           console.error(err);
         } else {
@@ -121,10 +122,12 @@ if (cloudantUrl && log_user && log_pass) {  // if we have cloudant url and crede
 }
 
 function store(new_payload, data) {
-  //If the logs db is set, then we want to record all input and responses
+  // If the logs db is set, then we want to record all input and responses
   if (logs) {
     let id = uuid.v4();
-    logs.insert({'_id': id, 'request': new_payload, 'response': data, 'time': new Date()}, function (err, data) {
+    logs.insert({'_id': id, 'request': new_payload, 'response': data, 'time': new Date()}, function (err) {
+      if(err)
+        console.error(err);
     });
   }
 }

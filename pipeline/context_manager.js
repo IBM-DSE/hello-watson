@@ -20,15 +20,14 @@ let DEBUG = false;
 
 module.exports = {
 
-  update_context: function(payload, callback) {
-
+  update_context: function (payload, callback) {
     // Update the payload.context with whatever changes are required
 
     if (DEBUG) {
-      console.log("\nNew Context:");
+      console.log('\nNew Context:');
       console.log(payload.context);
     }
     callback(payload);
   }
-  
+
 };

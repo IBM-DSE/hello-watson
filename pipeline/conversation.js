@@ -36,8 +36,7 @@ if (conversation_vars_set()) {
   console.log('Using Workspace ID ' + workspace_id);
 }
 
-router.post('/', function(req, res) {
-
+router.post('/', function (req, res) {
   if (!conversation_vars_set()) {
     return res.json({'output': {'text': 'Oops! It doesn\'t look like I have been configured correctly...'}});
   }
@@ -58,10 +57,9 @@ router.post('/', function(req, res) {
   }
 
   // Update the context before sending payload to the Watson Conversation service
-  context_manager.update_context(payload, function(new_payload) {
-
+  context_manager.update_context(payload, function (new_payload) {
     // Send the input to the conversation service
-    conversation.message(new_payload, function(err, data) {
+    conversation.message(new_payload, function (err, data) {
       if (err) {
         console.error('conversation.message error: ' + err.error);
         if (err.description) console.error(err.description);

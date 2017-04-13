@@ -16,16 +16,8 @@
 
 /* The Global module is used to initialize the other modules */
 
-/* global TooltipDialogs: true, Conversation: true, ConversationResponse: true, Sidebar: true, Animations: true, Common: true */
+/* global Conversation: true */
 
 (function () {
-    // TooltipDialogs.init();
-    Conversation.init();
-    // ConversationResponse.init();
-    // Sidebar.init();
-    // Animations.init();
-    // Used as a cloak to delay displaying the app until it's likely done rendering
-    // Common.wait(Animations.isInitialized, function() {
-    //   document.body.style.visibility = 'visible';
-    // }, 50);
+  Conversation.init();
 }());

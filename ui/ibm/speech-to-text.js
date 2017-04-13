@@ -70,7 +70,6 @@ var STTModule = (function() {
   }
 
   function micOff() {
-    console.log("Turning off the mic.");
     user_input.disabled = false;
     mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
     recording = false;                          // We aren't recording anymore
@@ -106,16 +105,15 @@ var STTModule = (function() {
               // Api.setWatsonPayload({output: {text: ['Microphone input cancelled. Please press the button to speak to Watson again'], speech: false}}); // If the user clicked the microphone button again to cancel current input
             }
           })
-          .catch(function(err) { // Catch any errors made during the promise
-            console.error(err);
-            if (err.message.includes('No speech detected')) // This error will always occur when Speech-To-Text times out, so don't log it (but log everything else)
-              console.log('Timeout!');  // TODO: make this an overlay: Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Press the button to speak to Watson again.'], speech: false}});
+          .catch(function() { // (err) Catch any errors made during the promise
+            // if (err.message.includes('No speech detected')) // This error will always occur when Speech-To-Text times out, so don't log it (but log everything else)
+              // TODO: make this an overlay: Api.setWatsonPayload({output: {text: ['Watson timed out after a few seconds of inactivity. Press the button to speak to Watson again.'], speech: false}});
             // else console.error(err);
             micOff();
           });
       })
-      .catch(function(error) { // Catch any other errors and log them
-        console.error(error);
+      .catch(function() { // error Catch any other errors and log them
+        // console.error(error);
       });
   }
 })();

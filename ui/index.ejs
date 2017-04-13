@@ -131,19 +131,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 <script>
-  // Get mic_setting from browser localStorage
-  var mic_setting = localStorage.getItem("mic_setting") || 'prompt';
 
-  $(function() {
-    $("#" + mic_setting).prop('checked', true); // set input element corresponding to the initial mic setting to checked
-    $("#auto-mic-label").html($('label[for=' + mic_setting + ']').html()); // set default label based on initial mic setting
-  });
-
-  // update mic_setting variable on click
-  $('#mic-settings').find('li').on('click', function() {
-    mic_setting = $(this)[0].firstChild.id;
-    localStorage.setItem("mic_setting", mic_setting);
-  });
 </script>
 
 <!-- build:js vendor.min.js -->
