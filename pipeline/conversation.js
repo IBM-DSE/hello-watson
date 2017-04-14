@@ -28,7 +28,14 @@ let workspace_id = process.env.WORKSPACE_ID || null;
 let conversation;
 if (conversation_vars_set()) {
   try {
-    conversation = new watson.ConversationV1(conversationConfig);
+    conversation = new watson.ConversationV1({
+      // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
+      // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+      // username: '<username>',
+      // password: '<password>',
+      version_date: watson.ConversationV1.VERSION_DATE_2017_02_03,
+      version: 'v1'
+    });
   } catch (e) {
     console.error(e);
   }
