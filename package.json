@@ -8,7 +8,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "gulp build-html && node server.js",
     "lint": "eslint .",
     "autofix": "eslint --fix .",
     "postinstall": "gulp build-html",
